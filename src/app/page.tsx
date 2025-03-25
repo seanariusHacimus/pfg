@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,7 +23,7 @@ export default function Home() {
               <span className="text-[10px] text-[#CACACA]">Гарантийный фонд</span>
               <div className="flex items-center">
                 <span className="mr-1 text-[12px]">169 716,76 сумов</span>
-                <img src="/icons/increase-arrow.svg" alt="Increase arrow" width={15} height={10} />
+                <Image src="/icons/increase-arrow.svg" alt="Increase arrow" width={15} height={10} />
               </div>
             </div>
             <div className="flex gap-7 px-7 py-3 border-white border-r-[1px] border-l-[1px]">
@@ -34,7 +35,7 @@ export default function Home() {
                 <div key={currency}>
                   <span className="text-[#CACACA] text-[10px]">Курс {currency}</span>
                   <div className="flex text-[12px]">
-                    <img src={`/icons/${icon}.svg`} alt={`${currency} icon`} width={10} height={10} />
+                    <Image src={`/icons/${icon}.svg`} alt={`${currency} icon`} width={10} height={10} />
                     <span>{value}</span>
                     <span>{change}</span>
                   </div>
@@ -48,7 +49,7 @@ export default function Home() {
                   <div className="flex text-[12px]">
                     <span>{item.value}</span>
                     <span>{item.change}</span>
-                    <img src="/icons/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
+                    <Image src="/icons/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
                   </div>
                 </div>
               ))}
@@ -58,7 +59,7 @@ export default function Home() {
         <div className="container max-w-[1440px] m-auto flex items-center justify-between py-5">
             <div className="flex">
               <div>
-                <img src="/icons/PFG Logo.svg" alt="PFG Logo" width={125} height={21} />
+                <Image src="/icons/PFG Logo.svg" alt="PFG Logo" width={125} height={21} />
               </div>
               <nav className="pl-11">
                 <ul className="flex gap-8 text-white text-[12px] items-center">
@@ -73,7 +74,7 @@ export default function Home() {
             <div className="flex items-center">
               <div className="flex items-center gap-8 text-white">
                 <div className="flex items-center gap-2 text-[12px]">
-                <img src="/icons/lang-arrow.svg" alt="language arrow right" width={6} height={6} />
+                <Image src="/icons/lang-arrow.svg" alt="language arrow right" width={6} height={6} />
                   <span>RUSSIAN</span>
                 </div>
                 <a href="tel:+998712001234" className="hover:opacity-80 text-2xl leading-6">+998 71 200 12 34</a>
@@ -111,19 +112,19 @@ export default function Home() {
           <div className="flex gap-3">
             <div className="flex-1 flex flex-col justify-between p-[30px] aspect-square bg-[#F2F4F7]">
               <h3 className="text-2xl leading-[26px]">Брокерские<br/>услуги</h3>
-              <img src="/icons/services-icon-1.svg" alt="" width={88} height={88}/>
+              <Image src="/icons/services-icon-1.svg" alt="" width={88} height={88}/>
             </div>
             <div className="flex-1 flex flex-col justify-between p-[30px] aspect-square bg-[#F2F4F7]">
               <h3 className="text-2xl leading-[26px]">Депозитарные<br/>услуги</h3>
-              <img src="/icons/services-icon-2.svg" alt="" width={88} height={88}/>
+              <Image src="/icons/services-icon-2.svg" alt="" width={88} height={88}/>
             </div>
             <div className="flex-1 flex flex-col justify-between p-[30px] aspect-square bg-[#F2F4F7]">
               <h3 className="text-2xl leading-[26px]">Услуги реорганизации<br/>бизнеса</h3>
-              <img src="/icons/services-icon-3.svg" alt="" width={88} height={88}/>
+              <Image src="/icons/services-icon-3.svg" alt="" width={88} height={88}/>
             </div>
             <div className="flex-1 flex flex-col justify-between p-[30px] aspect-square bg-[#F2F4F7]">
               <h3 className="text-2xl leading-[26px]">Корпоративный<br/>консалтинг</h3>
-              <img src="/icons/services-icon-4.svg" alt="" width={88} height={88}/>
+              <Image src="/icons/services-icon-4.svg" alt="" width={88} height={88}/>
             </div>
           </div>
         </div>
@@ -131,7 +132,7 @@ export default function Home() {
 
       <section className=" bg-white text-black">
         <div className="container max-[1440px] m-auto py-14">
-          <img className="w-full" src="/icons/partners full.svg" alt="" />
+          <Image className="w-full" src="/icons/partners full.svg" alt="" width={1440} height={100}/>
         </div>
       </section>
 
@@ -141,11 +142,11 @@ export default function Home() {
           <div className="flex gap-3">
             <div className="flex-1 flex">
               {/* <h3>Как открыть<br/>брокерский счет</h3> */}
-              <img className="w-full" src="/icons/comfy-broker-2.svg" alt="" width={666} height={345}/>
+              <Image className="w-full" src="/icons/comfy-broker-2.svg" alt="" width={666} height={345}/>
             </div>
             <div className="flex-1 flex">
               {/* <h3>Как открыть<br/>брокерский счет</h3> */}
-              <img className="w-full" src="/icons/comfy-broker-1.svg" alt="" width={666} height={345}/>
+              <Image className="w-full" src="/icons/comfy-broker-1.svg" alt="" width={666} height={345}/>
             </div>
           </div>
         </div>
@@ -157,37 +158,37 @@ export default function Home() {
           <div className="flex flex-col gap-11">
               <div className="flex gap-3">
                 <div className="flex-1">
-                  <img src="/icons/whyus-1.svg" alt="" width={44} height={44}/>
+                  <Image src="/icons/whyus-1.svg" alt="" width={44} height={44}/>
                   <h3 className="text-2xl leading-[26px] mt-[6px]">Комплексный<br/>подход</h3>
                 </div>
                 <div className="flex-1">
-                  <img src="/icons/whyus-2.svg" alt="" width={44} height={44}/>
+                  <Image src="/icons/whyus-2.svg" alt="" width={44} height={44}/>
                   <h3 className="text-2xl leading-[26px] mt-[6px]">Комплексный<br/>подход</h3>
                 </div>
                 <div className="flex-1">
-                  <img src="/icons/whyus-3.svg" alt="" width={44} height={44}/>
+                  <Image src="/icons/whyus-3.svg" alt="" width={44} height={44}/>
                   <h3 className="text-2xl leading-[26px] mt-[6px]">Комплексный<br/>подход</h3>
                 </div>
                 <div className="flex-1">
-                  <img src="/icons/whyus-4.svg" alt="" width={44} height={44}/>
+                  <Image src="/icons/whyus-4.svg" alt="" width={44} height={44}/>
                   <h3 className="text-2xl leading-[26px] mt-[6px]">Комплексный<br/>подход</h3>
                 </div>
               </div>
               <div className="flex gap-3">
                 <div className="flex-1">
-                  <img src="/icons/whyus-5.svg" alt="" width={44} height={44}/>
+                  <Image src="/icons/whyus-5.svg" alt="" width={44} height={44}/>
                   <h3 className="text-2xl leading-[26px] mt-[6px]">Комплексный<br/>подход</h3>
                 </div>
                 <div className="flex-1">
-                  <img src="/icons/whyus-6.svg" alt="" width={44} height={44}/>
+                  <Image src="/icons/whyus-6.svg" alt="" width={44} height={44}/>
                   <h3 className="text-2xl leading-[26px] mt-[6px]">Комплексный<br/>подход</h3>
                 </div>
                 <div className="flex-1">
-                  <img src="/icons/whyus-7.svg" alt="" width={44} height={44}/>
+                  <Image src="/icons/whyus-7.svg" alt="" width={44} height={44}/>
                   <h3 className="text-2xl leading-[26px] mt-[6px]">Комплексный<br/>подход</h3>
                 </div>
                 <div className="flex-1">
-                  <img src="/icons/whyus-8.svg" alt="" width={44} height={44}/>
+                  <Image src="/icons/whyus-8.svg" alt="" width={44} height={44}/>
                   <h3 className="text-2xl leading-[26px] mt-[6px]">Комплексный<br/>подход</h3>
                 </div>
               </div>
@@ -209,7 +210,7 @@ export default function Home() {
                   <span className="text-[12px]">Сумма сделки:</span>
                   <p className="text-2xl leading-7">$125 000</p>
                 </div>
-                <img src="/icons/strange-avatar.svg" alt="" width={40} height={40}/>
+                <Image src="/icons/strange-avatar.svg" alt="" width={40} height={40}/>
               </div>
             </div>
 
@@ -223,7 +224,7 @@ export default function Home() {
                   <span className="text-[12px]">Сумма сделки:</span>
                   <p className="text-2xl leading-7">$250 000</p>
                 </div>
-                <img src="/icons/strange-avatar.svg" alt="" width={40} height={40}/>
+                <Image src="/icons/strange-avatar.svg" alt="" width={40} height={40}/>
               </div>
             </div>
 
@@ -237,7 +238,7 @@ export default function Home() {
                   <span className="text-[12px]">Сумма сделки:</span>
                   <p className="text-2xl leading-7">$180 000</p>
                 </div>
-                <img src="/icons/strange-avatar.svg" alt="" width={40} height={40}/>
+                <Image src="/icons/strange-avatar.svg" alt="" width={40} height={40}/>
               </div>
             </div>
 
@@ -251,7 +252,7 @@ export default function Home() {
                   <span className="text-[12px]">Сумма сделки:</span>
                   <p className="text-2xl leading-7">$180 000</p>
                 </div>
-                <img src="/icons/strange-avatar.svg" alt="" width={40} height={40}/>
+                <Image src="/icons/strange-avatar.svg" alt="" width={40} height={40}/>
               </div>
             </div>
 
@@ -265,7 +266,7 @@ export default function Home() {
                   <span className="text-[12px]">Сумма сделки:</span>
                   <p className="text-2xl leading-7">$180 000</p>
                 </div>
-                <img src="/icons/strange-avatar.svg" alt="" width={40} height={40}/>
+                <Image src="/icons/strange-avatar.svg" alt="" width={40} height={40}/>
               </div>
             </div>
           </div>
@@ -298,7 +299,7 @@ export default function Home() {
           <div className="flex">
             <div className="w-1/2">
               <div className="flex items-center pb-11">
-                <img className="mr-6" src="/icons/new-1.svg" alt="" width={227}/>
+                <Image className="mr-6" src="/icons/new-1.svg" alt="" width={227} height={150}/>
                 <div>
                   <p className="text-[14px]">
                     <span className="mr-2.5">Рубрика </span>
@@ -308,7 +309,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex items-center pb-11">
-                <img className="mr-6" src="/icons/new-1.svg" alt="" width={227}/>
+                <Image className="mr-6" src="/icons/new-1.svg" alt="" width={227} height={150}/>
                 <div>
                   <p className="text-[14px]">
                     <span className="mr-2.5">Рубрика </span>
@@ -318,7 +319,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex items-center pb-11">
-                <img className="mr-6" src="/icons/new-1.svg" alt="" width={227}/>
+                <Image className="mr-6" src="/icons/new-1.svg" alt="" width={227} height={150}/>
                 <div>
                   <p className="text-[14px]">
                     <span className="mr-2.5">Рубрика </span>
@@ -330,7 +331,7 @@ export default function Home() {
             </div>
             <div className="w-1/2">
               <div>
-                <img className="w-full mr-6" src="/icons/new-1.svg" alt="" width={635}/>
+                <Image className="w-full mr-6" src="/icons/new-1.svg" alt="" width={635} height={400}/>
                 <p className="text-[14px]">
                   <span className="mr-2.5">Рубрика </span>
                   <span>24 января 2025</span>
@@ -346,7 +347,7 @@ export default function Home() {
         <div className="container max-[1440px] m-auto py-14">
           <div className="flex">
             <div className="w-1/2">
-              <img src="/icons/pfg-logo-footer.svg" alt="" />
+              <Image src="/icons/pfg-logo-footer.svg" alt="" width={200} height={50}/>
             </div>
             <div className="flex w-1/2">
               <div className="w-1/4">
@@ -389,8 +390,8 @@ export default function Home() {
                 {currency: 'евро', icon: 'euro', value: '13 003.95', change: '+14.88'}, 
                 {currency: 'рубля', icon: 'rubl', value: '13 003.95', change: '+14.88'}
                 ].map(({currency, icon, value, change}) => (
-                  <li className="flex text-[14px]">
-                    <img className="block mr-1.5 invert" src={`/icons/${icon}.svg`} alt={`${currency} icon`} width={14} height={14} />
+                  <li key={currency} className="flex text-[14px]">
+                    <Image className="block mr-1.5 invert" src={`/icons/${icon}.svg`} alt={`${currency} icon`} width={14} height={14} />
                     <span>{value}</span>
                     <span>{change}</span>
                   </li>
