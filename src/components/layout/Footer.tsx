@@ -57,7 +57,7 @@ export default function Footer() {
             <Image src="/media/pfg-logo-footer.svg" alt="" width={200} height={50} />
           </div>
           <div className="flex w-1/2">
-            {footerSections.map((section, index) => (
+            {footerSections.map((section) => (
               <div key={section.title} className="w-1/4">
                 <h4 className="text-[#2450C4] pb-3.5">{section.title}</h4>
                 <ul className="flex flex-col gap-2 text-[14px]">
