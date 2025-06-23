@@ -1,0 +1,52 @@
+interface DealParty {
+  name: string;
+}
+
+interface DealCardProps {
+  title: string;
+  parties: DealParty[];
+  amount: string;
+}
+
+export default function DealCard({ title, parties, amount }: DealCardProps) {
+  return (
+    <div className="relative flex flex-col p-5 bg-white border border-[#E8E8E8] box-border flex-1">
+      {/* Title */}
+      <h4 className="text-[16px] leading-[18px] font-medium text-[#2450C4] mb-auto">
+        {title}
+      </h4>
+      
+      {/* Deal parties label */}
+      <div className="mt-8">
+        <span className="block text-[14px] leading-[17px] font-normal text-[#ACACAC] tracking-[0.01em] mb-2">
+          Стороны сделки
+        </span>
+        
+        {/* Deal parties */}
+        {parties.map((party, index) => (
+          <div key={index} className="flex gap-2 mb-1">
+            <span className="text-[14px] leading-[17px] font-normal text-[#ACACAC] tracking-[0.01em]">
+              {index + 1}
+            </span>
+            <span className="text-[14px] leading-[17px] font-normal text-black tracking-[0.01em]">
+              {party.name}
+            </span>
+          </div>
+        ))}
+      </div>
+      
+      {/* Separator line */}
+      <div className="w-full border-t-[0.5px] border-[#E8E8E8] my-4"></div>
+      
+      {/* Deal amount */}
+      <div className="flex justify-between">
+        <span className="text-[14px] leading-[17px] font-normal text-[#ACACAC] tracking-[0.01em]">
+          Сумма сделки
+        </span>
+        <span className="text-[14px] leading-[17px] font-normal text-black tracking-[0.01em]">
+          {amount}
+        </span>
+      </div>
+    </div>
+  );
+} 
