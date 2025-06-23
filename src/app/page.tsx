@@ -65,8 +65,8 @@ export default function Home() {
 
       <section className="bg-[#F2F4F7] text-black">
         <div className="container max-w-[1440px] m-auto pt-14 pb-5">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl leading-tight pb-4 md:pb-6 text-[#2450C4] font-display font-normal">
-            Быть удобным брокером для своего клиента
+          <h2 className="text-2xl sm:text-3xl md:text-4xl leading-tight pb-4 md:pb-10 text-[#2450C4] font-display font-normal">
+            Быть удобным брокером <br></br> для своего клиента
           </h2>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-6">
             {brokerData.map((broker, index) => (
