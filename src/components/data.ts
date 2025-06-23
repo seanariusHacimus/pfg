@@ -63,19 +63,29 @@ export const dealsData = [
 // Team data
 export const teamData = [
   {
-    name: 'Dior Matchanov',
-    position: 'Art Director',
-    imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000'
+    name: 'Ойбек Батырович',
+    position: 'Директор и основатель',
+    imageUrl: '/media/profile.png'
   },
   {
-    name: 'Sarah Johnson',
-    position: 'Creative Director',
-    imageUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1000'
+    name: 'Ойбек Батырович',
+    position: 'Директор и основатель',
+    imageUrl: '/media/profile.png'
   },
   {
-    name: 'Michael Chen',
-    position: 'Technical Director',
-    imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000'
+    name: 'Ойбек Батырович',
+    position: 'Директор и основатель',
+    imageUrl: '/media/profile.png'
+  },
+  {
+    name: 'Ойбек Батырович',
+    position: 'Директор и основатель',
+    imageUrl: '/media/profile.png'
+  },
+  {
+    name: 'Ойбек Батырович',
+    position: 'Директор и основатель',
+    imageUrl: '/media/profile.png'
   }
 ];
 
@@ -107,4 +117,16 @@ export const newsData = {
     date: '24 января 2025',
     image: '/media/new-1.svg'
   }
-}; 
+};
+
+// Broker data
+export const brokerData = [
+  {
+    imageUrl: "/media/offer1.svg",
+    title: "Как открыть брокерский счет"
+  },
+  {
+    imageUrl: "/media/offer2.svg", 
+    title: "Депозитарные услуги"
+  }
+]; 

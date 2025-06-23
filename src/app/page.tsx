@@ -11,6 +11,7 @@ import ServiceCard from '@/components/home/ServiceCard';
 import WhyUsItem from '@/components/home/WhyUsItem';
 import TeamMember from '@/components/home/TeamMember';
 import NewsItem from '@/components/home/NewsItem';
+import BrokerCard from '@/components/home/BrokerCard';
 
 // Import data
 import { 
@@ -19,7 +20,8 @@ import {
   whyUsData, 
   dealsData, 
   teamData, 
-  newsData 
+  newsData,
+  brokerData 
 } from '@/components/data';
 
 export default function Home() {
@@ -27,9 +29,9 @@ export default function Home() {
     <div className="font-sans">
       <Header />
 
-      <section className="bg-gradient-to-b from-[#1a3b91] via-[#2E68FF] to-[#1a3b91]">
-        <div className="h-[700px] container max-w-[1440px] m-auto text-white flex flex-col justify-end ">
-          <h1 className="text-7xl pt-56 leading-16 font-display font-normal">Ваш партнер<br /> в мире инвестиций<br /> и финансов</h1>
+      <section className="bg-gradient-to-b" style={{ backgroundImage: "url('/media/banner.svg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="h-[715px] container max-w-[1440px] m-auto text-white flex flex-col justify-end ">
+          <h1 className="text-7xl leading-16 font-display font-normal">Ваш партнер<br /> в мире инвестиций<br /> и финансов</h1>
           <div className="flex py-14 items-center">
             <div className="flex gap-12 mr-20">
               {heroStats.map((stat, index) => (
@@ -61,26 +63,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white text-black">
-        <div className="container max-w-[1440px] m-auto py-14">
-          <h2 className="text-4xl leading-9 pb-6 text-[#2450C4] font-display font-normal">Быть удобным брокером для своего клиента</h2>
-          <div className="flex gap-3">
-            <div className="flex-1 flex">
-              <Image className="w-full" src="/media/comfy-broker-2.svg" alt="" width={666} height={345} />
-            </div>
-            <div className="flex-1 flex">
-              <Image className="w-full" src="/media/comfy-broker-1.svg" alt="" width={666} height={345} />
-            </div>
+      <section className="bg-[#F2F4F7] text-black">
+        <div className="container max-w-[1440px] m-auto pt-14 pb-5">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl leading-tight pb-4 md:pb-6 text-[#2450C4] font-display font-normal">
+            Быть удобным брокером для своего клиента
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-6">
+            {brokerData.map((broker, index) => (
+              <BrokerCard 
+                key={index}
+                imageUrl={broker.imageUrl}
+                title={broker.title}
+                className="w-1/2" // Added w-1/2 to make each card take 50% width
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white text-black">
-        <div className="container max-w-[1440px] m-auto py-14">
-          <h2 className="text-4xl leading-9 pb-11 text-[#2450C4] font-display font-normal">Почему мы?</h2>
-          <div className="flex flex-col gap-11">
+      <section className="bg-[#F2F4F7] text-black">
+        <div className="container max-w-[1440px] m-auto pb-14">
+          <div className="flex flex-col gap-5">
             {whyUsData.map((row, rowIndex) => (
-              <div key={rowIndex} className="flex gap-3">
+              <div key={rowIndex} className="flex gap-5">
                 {row.map((item, index) => (
                   <WhyUsItem key={index} title={item.title} icon={item.icon} />
                 ))}
@@ -90,9 +95,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white text-black bg-[url('/media/bg.png')] bg-cover bg-center">
+      <section className="bg-white text-black">
         <div className="container max-w-[1440px] m-auto py-14">
-          <h2 className="text-4xl leading-9 pb-11 text-white font-display font-normal">Наши сделки</h2>
+          <h2 className="text-4xl leading-9 pb-11 text-[#2450C4] font-display font-normal">Наша команда</h2>
+          <div className="flex gap-6 flex-wrap">
+            {teamData.map((member, index) => (
+              <TeamMember 
+                key={index}
+                name={member.name}
+                position={member.position}
+                imageUrl={member.imageUrl}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F2F4F7] text-black bg-cover bg-center">
+        <div className="container max-w-[1440px] m-auto py-14">
+          <h2 className="text-4xl leading-9 pb-11 text-[#2450C4] font-display font-normal">Наши сделки</h2>
           <div className="flex gap-6">
             {dealsData.map((deal, index) => (
               <DealCard 
@@ -100,22 +121,6 @@ export default function Home() {
                 title={deal.title} 
                 parties={deal.parties} 
                 amount={deal.amount} 
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white text-black">
-        <div className="container max-w-[1440px] m-auto py-14">
-          <h2 className="text-4xl leading-9 pb-11 text-[#2450C4] font-display font-normal">Наша команда</h2>
-          <div className="flex gap-3">
-            {teamData.map((member, index) => (
-              <TeamMember 
-                key={index}
-                name={member.name}
-                position={member.position}
-                imageUrl={member.imageUrl}
               />
             ))}
           </div>
