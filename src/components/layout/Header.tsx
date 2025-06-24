@@ -37,33 +37,24 @@ export default function Header() {
       <div className="border-white border-b-[1px]">
         <div className="container max-w-[1440px] m-auto flex text-white">
           <div className="pr-7 py-3">
-            <span className="text-[10px] text-[#CACACA]">Гарантийный фонд</span>
-            <div className="flex items-center">
-              <span className="mr-1 text-[12px]">169 716,76 сумов</span>
-              <Image src="/media/increase-arrow.svg" alt="Increase arrow" width={15} height={10} />
-            </div>
+            <span className="text-[12px] text-white">Гарантийный фонд: <span className="ml-1 text-[12px]"> 169 716,76 сумов</span></span>
           </div>
-          <div className="flex gap-7 px-7 py-3 border-white border-r-[1px] border-l-[1px]">
-            {currencyData.map(({currency, icon, value, change}) => (
-              <div key={currency}>
-                <span className="text-[#CACACA] text-[10px]">Курс {currency}</span>
-                <div className="flex text-[12px]">
-                  <Image src={`/media/${icon}.svg`} alt={`${currency} icon`} width={10} height={10} />
-                  <span>{value}</span>
-                  <span>{change}</span>
-                </div>
+          <div className="flex items-center px-7 py-3  gap-4 border-white border-l-[1px]">
+            {stockData.map((item, index) => (
+              <div className="flex text-[12px]" key={index}>
+                <span className="mr-1 font-medium">{item.name}</span>
+                <span className="mr-1 font-normal">{item.value}</span>
+                <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
+                <span className="text-[#00B81D]">{item.change}</span>
               </div>
             ))}
           </div>
-          <div className="flex gap-12 px-7 py-3">
-            {stockData.map((item, index) => (
-              <div key={index}>
-                <span className="text-[#CACACA] text-[10px]">{item.name}</span>
-                <div className="flex text-[12px]">
-                  <span>{item.value}</span>
-                  <span>{item.change}</span>
-                  <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
-                </div>
+          <div className="flex items-center gap-7 px-7 py-3 border-white border-r-[1px] border-l-[1px]">
+            {currencyData.map(({currency, icon, value, change}) => (
+              <div className="flex text-[12px]" key={currency}>
+                <Image className="mr-1" src={`/media/${icon}.svg`} alt={`${currency} icon`} width={10} height={10} />
+                <span className="mr-1">{value}</span>
+                <span className="mr-1 text-[#B2B2B2]">{change}</span>
               </div>
             ))}
           </div>
