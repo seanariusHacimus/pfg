@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { DollarSign, Euro, Coins } from 'lucide-react';
+import { DollarSign, Euro, RussianRuble } from 'lucide-react';
 
 // Static data moved into the component file
 const currencyData = [
@@ -30,9 +30,9 @@ const getCurrencyIcon = (iconType: string) => {
     case 'euro':
       return <Euro {...iconProps} />;
     case 'rubl':
-      return <Coins {...iconProps} />;
+      return <RussianRuble {...iconProps} />;
     default:
-      return <Coins {...iconProps} />;
+      return <RussianRuble {...iconProps} />;
   }
 };
 
