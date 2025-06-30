@@ -49,7 +49,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`w-full font-thin border-[#D8D8D8] border-b-[0.5px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black -translate-y-[0px]' : 'bg-transparent translate-y-0'}`}>
+    <header className={`w-full font-thin text-white border-[#D8D8D8] border-b-[0.5px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black -translate-y-[0px]' : 'bg-transparent translate-y-0'}`}>
       
       <div className="border-[#D8D8D8] border-b-[0.5px]">
         <div className="container max-w-[1340px] flex min-h-[44px] mx-auto">
