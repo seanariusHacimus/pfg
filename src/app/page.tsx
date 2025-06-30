@@ -36,7 +36,7 @@ export default function Home() {
             <div className="flex gap-10 mr-19">
               {heroStats.map((stat, index) => (
                 <div key={index} className="flex flex-col">
-                  <span className="text-[34px] leading-9 font-display font-normal">{stat.number}</span>
+                  <span className="text-[32px] leading-[22px] tracking-[3%] md:text-[34px] md:leading-9 md:tracking-normal font-display font-normal">{stat.number}</span>
                   <p className="text-2xl leading-[26px] font-sans font-light tracking-[2%">{stat.description}</p>
                 </div>
               ))}
