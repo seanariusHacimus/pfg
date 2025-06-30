@@ -41,7 +41,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 600);
+      setIsScrolled(window.scrollY > 200);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -49,7 +49,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`w-full font-thin text-white border-[#D8D8D8] border-b-[0.5px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black -translate-y-[0px]' : 'bg-transparent translate-y-0'}`}>
+    <header className={`w-full font-thin text-white border-[#D8D8D8] border-b-[0.5px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#1E42A1] -translate-y-[0px]' : 'bg-transparent translate-y-0'}`}>
       
       <div className="border-[#D8D8D8] border-b-[0.5px]">
         <div className="container max-w-[1340px] flex min-h-[44px] mx-auto">
@@ -69,8 +69,8 @@ export default function Header() {
                 </div>
               ))}
             </div>
-            <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-black' : 'from-[#223142]'}`}></div>
-            <div className={`absolute right-0 top-0 w-16 h-full bg-gradient-to-l to-transparent z-10 ${isScrolled ? 'from-black' : 'from-[#223142]'}`}></div>
+            <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-[#1E42A1]' : 'from-[#223142]'}`}></div>
+            <div className={`absolute right-0 top-0 w-16 h-full bg-gradient-to-l to-transparent z-10 ${isScrolled ? 'from-[#1E42A1]' : 'from-[#223142]'}`}></div>
           </div>
 
           <div className="relative pl-4 overflow-hidden flex items-center">
@@ -83,7 +83,7 @@ export default function Header() {
                 </div>
               ))}
             </div>
-            <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-black' : 'from-[#223142]'}`}></div>
+            <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-[#1E42A1]' : 'from-[#223142]'}`}></div>
           </div>
 
         </div>
