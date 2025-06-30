@@ -9,7 +9,6 @@ import Footer from '@/components/layout/Footer';
 import DealCard from '@/components/home/DealCard';
 import ServiceCard from '@/components/home/ServiceCard';
 import WhyUsItem from '@/components/home/WhyUsItem';
-import TeamMember from '@/components/home/TeamMember';
 import TeamSlider from '@/components/home/TeamSlider';
 import NewsItem from '@/components/home/NewsItem';
 import BrokerCard from '@/components/home/BrokerCard';
