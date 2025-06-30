@@ -49,13 +49,13 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`w-full font-thin text-white border-[#D8D8D8] border-b-[0.5px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#1E42A1] border-b-[#1E42A1] -translate-y-[0px]' : 'bg-transparent translate-y-0'}`}>
+    <header className={`w-full font-thin border-[#D8D8D8] border-b-[0.5px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white border-b-white -translate-y-[45px] text-black' : 'bg-transparent translate-y-0 text-white'}`}>
       
       <div className="border-[#D8D8D8] border-b-[0.5px]">
         <div className="container max-w-[1340px] flex min-h-[44px] mx-auto">
 
           <div className="min-w-[225px] flex items-center justify-center overflow-hidden relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8]">
-            <span className="text-xs text-white whitespace-nowrap">Гарантийный фонд: <span className="ml-1 text-xs"> 169 716,76 сумов</span></span>
+            <span className="text-xs whitespace-nowrap">Гарантийный фонд: <span className="ml-1 text-xs"> 169 716,76 сумов</span></span>
           </div>
 
           <div className="overflow-hidden flex items-center relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8] after:z-10">
@@ -69,8 +69,8 @@ export default function Header() {
                 </div>
               ))}
             </div>
-            <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-[#1E42A1]' : 'from-[#223142]'}`}></div>
-            <div className={`absolute right-0 top-0 w-16 h-full bg-gradient-to-l to-transparent z-10 ${isScrolled ? 'from-[#1E42A1]' : 'from-[#223142]'}`}></div>
+            <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-white' : 'from-[#223142]'}`}></div>
+            <div className={`absolute right-0 top-0 w-16 h-full bg-gradient-to-l to-transparent z-10 ${isScrolled ? 'from-white' : 'from-[#223142]'}`}></div>
           </div>
 
           <div className="relative pl-4 overflow-hidden flex items-center">
@@ -83,7 +83,7 @@ export default function Header() {
                 </div>
               ))}
             </div>
-            <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-[#1E42A1]' : 'from-[#223142]'}`}></div>
+            <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-white' : 'from-[#223142]'}`}></div>
           </div>
 
         </div>
@@ -93,7 +93,7 @@ export default function Header() {
         <div className="flex">
 
           <div className="pr-11">
-            <Image src="/media/PFG Logo.svg" alt="PFG Logo" width={125} height={21} />
+            <Image src={isScrolled ? "/media/pfg-logo-footer.svg" : "/media/PFG Logo.svg"} alt="PFG Logo" width={125} height={21} />
           </div>
 
           <nav className='flex items-center'>
@@ -109,7 +109,7 @@ export default function Header() {
         </div>
         <div className="flex items-center">
 
-          <div className="flex items-center gap-8 text-white">
+          <div className="flex items-center gap-8">
             <div className="flex items-center gap-2 text-sm">
               <Image src="/media/lang-arrow.svg" alt="language arrow right" width={6} height={6} />
               <span>RUSSIAN</span>
