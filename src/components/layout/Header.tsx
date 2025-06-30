@@ -49,7 +49,12 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`w-full font-thin border-[#D8D8D8] border-b-[0.5px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white border-b-white -translate-y-[45px] text-black' : 'bg-transparent translate-y-0 text-white'}`}>
+    <header 
+      className={`w-full font-thin border-[#D8D8D8] border-b-[0.5px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white border-b-white -translate-y-[45px] text-black' : 'bg-transparent translate-y-0 text-white'}`}
+      style={{
+        boxShadow: isScrolled ? '0px 10px 50px 0px rgba(0, 0, 0, 0.25)' : 'none'
+      }}
+    >
       
       <div className="border-[#D8D8D8] border-b-[0.5px]">
         <div className="container max-w-[1340px] flex min-h-[44px] mx-auto">
