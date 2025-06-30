@@ -3,10 +3,16 @@ import localFont from 'next/font/local'
 // ABC Diatype Cyrillic font configuration
 export const abcDiatype = localFont({
   src: [
+    
+    {
+      path: './abc/ABCDiatypeCyrillic-Thin-Trial.otf',
+      weight: '100',
+      style: 'thin',
+    },
     {
       path: './abc/ABCDiatypeCyrillic-Light-Trial.otf',
       weight: '300',
-      style: 'normal',
+      style: 'light',
     },
     {
       path: './abc/ABCDiatypeCyrillic-Regular-Trial.otf',
@@ -36,27 +42,27 @@ export const abcDiatype = localFont({
 export const sharpGrotesk = localFont({
   src: [
     {
-      path: './sharp/SharpGroteskPE-25Light.ttf',
+      path: './sharp/SharpGroteskPE-20Light.ttf',
       weight: '300',
       style: 'normal',
     },
     {
-      path: './sharp/SharpGroteskPE-25Book.ttf',
+      path: './sharp/SharpGroteskPE-20Book.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: './sharp/SharpGroteskPE-25Medium.ttf',
+      path: './sharp/SharpGroteskPE-20Medium.ttf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: './sharp/SharpGroteskPE-25Bold.ttf',
+      path: './sharp/SharpGroteskPE-20Bold.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: './sharp/SharpGroteskPE-25Black.ttf',
+      path: './sharp/SharpGroteskPE-20Black.ttf',
       weight: '900',
       style: 'normal',
     },

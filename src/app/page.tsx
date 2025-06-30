@@ -10,6 +10,7 @@ import DealCard from '@/components/home/DealCard';
 import ServiceCard from '@/components/home/ServiceCard';
 import WhyUsItem from '@/components/home/WhyUsItem';
 import TeamMember from '@/components/home/TeamMember';
+import TeamSlider from '@/components/home/TeamSlider';
 import NewsItem from '@/components/home/NewsItem';
 import BrokerCard from '@/components/home/BrokerCard';
 
@@ -30,25 +31,25 @@ export default function Home() {
       <Header />
 
       <section className="bg-gradient-to-b" style={{ backgroundImage: "url('/media/banner.svg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="h-[715px] container max-w-[1440px] m-auto text-white flex flex-col justify-end ">
-          <h1 className="text-7xl leading-16 font-display font-normal">Ваш партнер<br /> в мире инвестиций<br /> и финансов</h1>
-          <div className="flex py-14 items-center">
-            <div className="flex gap-12 mr-20">
+        <div className="h-[725px] container max-w-[1340px] m-auto text-white flex flex-col justify-end">
+          <h1 className="text-[82px] leading-19 tracking-tight font-display">Ваш партнер<br /> в мире инвестиций<br /> и финансов</h1>
+          <div className="flex py-10 items-center">
+            <div className="flex gap-10 mr-19">
               {heroStats.map((stat, index) => (
-                <div key={index} className="flex flex-col pl-2.5 border-l border-[#2E68FF]">
-                  <span className="text-4xl leading-9 font-display font-normal">{stat.number}</span>
-                  <p className="text-2xl leading-6 font-sans font-light">{stat.description}</p>
+                <div key={index} className="flex flex-col">
+                  <span className="text-[34px] leading-9 font-display font-normal">{stat.number}</span>
+                  <p className="text-2xl leading-[26px] font-sans font-light tracking-[2%">{stat.description}</p>
                 </div>
               ))}
             </div>
-            <p className="text-2xl leading-7 font-sans font-light">Услуги в области инвестиционного посредничества,<br /> выпуска ценных бумаг и сопровождения сделок.</p>
+            <p className="text-2xl leading-[26px] font-sans font-light tracking-[2%]">Услуги в области инвестиционного посредничества,<br /> выпуска ценных бумаг и сопровождения сделок.</p>
           </div>
         </div>
       </section>
 
       <section className="bg-white text-black">
-        <div className="container max-w-[1440px] m-auto py-14">
-          <h2 className="text-4xl leading-9 pb-6 text-[#2450C4] font-display font-normal">Наши услуги</h2>
+        <div className="container max-w-[1340px] m-auto pt-[50px] pb-[20px]">
+          <h2 className="text-[34px] leading-9 pb-[50px] text-[#2450C4] font-display font-normal">Наши услуги</h2>
           <div className="flex gap-3">
             {servicesData.map((service, index) => (
               <ServiceCard key={index} title={service.title} icon={service.icon} />
@@ -58,17 +59,17 @@ export default function Home() {
       </section>
 
       <section className="bg-white text-black">
-        <div className="container max-w-[1440px] m-auto py-14">
+        <div className="container max-w-[1340px] m-auto py-14">
           <Image className="w-full" src="/media/partners full.svg" alt="" width={1440} height={100} />
         </div>
       </section>
 
       <section className="bg-[#F2F4F7] text-black">
-        <div className="container max-w-[1440px] m-auto pt-14 pb-5">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl leading-tight pb-4 md:pb-10 text-[#2450C4] font-display font-normal">
+        <div className="container max-w-[1340px] m-auto pt-[50px] pb-[10px]">
+          <h2 className="text-2xl sm:text-3xl md:text-[34px] leading-tight pb-4 md:pb-10 text-[#2450C4] font-display font-normal">
             Быть удобным брокером <br></br> для своего клиента
           </h2>
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-6">
+          <div className="flex flex-col sm:flex-row gap-[10px] md:gap-[10px]">
             {brokerData.map((broker, index) => (
               <BrokerCard 
                 key={index}
@@ -82,10 +83,10 @@ export default function Home() {
       </section>
 
       <section className="bg-[#F2F4F7] text-black">
-        <div className="container max-w-[1440px] m-auto pb-14">
-          <div className="flex flex-col gap-5">
+        <div className="container max-w-[1340px] m-auto pb-[50px]">
+          <div className="flex flex-col gap-[10px]">
             {whyUsData.map((row, rowIndex) => (
-              <div key={rowIndex} className="flex gap-5">
+              <div key={rowIndex} className="flex gap-[10px]">
                 {row.map((item, index) => (
                   <WhyUsItem key={index} title={item.title} icon={item.icon} />
                 ))}
@@ -96,25 +97,16 @@ export default function Home() {
       </section>
 
       <section className="bg-white text-black">
-        <div className="container max-w-[1440px] m-auto py-14">
-          <h2 className="text-4xl leading-9 pb-11 text-[#2450C4] font-display font-normal">Наша команда</h2>
-          <div className="flex gap-6 flex-wrap">
-            {teamData.map((member, index) => (
-              <TeamMember 
-                key={index}
-                name={member.name}
-                position={member.position}
-                imageUrl={member.imageUrl}
-              />
-            ))}
-          </div>
+        <div className="container max-w-[1340px] m-auto py-[50px]">
+          <h2 className="text-[34px] leading-9 pb-[50px] text-[#2450C4] font-display font-normal">Наша команда</h2>
+          <TeamSlider teamData={teamData} />
         </div>
       </section>
 
       <section className="bg-[#F2F4F7] text-black bg-cover bg-center">
-        <div className="container max-w-[1440px] m-auto py-14">
-          <h2 className="text-4xl leading-9 pb-11 text-[#2450C4] font-display font-normal">Наши сделки</h2>
-          <div className="flex gap-6">
+        <div className="container max-w-[1340px] m-auto py-[50px]">
+          <h2 className="text-[34px] leading-9 pb-[50px] text-[#2450C4] font-display font-normal">Наши сделки</h2>
+          <div className="flex gap-[10px]">
             {dealsData.map((deal, index) => (
               <DealCard 
                 key={index} 
@@ -128,9 +120,9 @@ export default function Home() {
       </section>
 
       <section className="bg-white text-black">
-        <div className="container max-w-[1440px] m-auto py-14">
-          <h2 className="text-4xl leading-9 pb-11 text-[#2450C4] font-display font-normal">Новости</h2>
-          <div className="flex">
+        <div className="container max-w-[1340px] m-auto py-[50px]">
+          <h2 className="text-[34px] leading-9 pb-[50px] text-[#2450C4] font-display font-normal">Новости</h2>
+          <div className="flex gap-[10px]">
             <div className="w-1/2">
               {newsData.smallNews.map((news, index) => (
                 <NewsItem 

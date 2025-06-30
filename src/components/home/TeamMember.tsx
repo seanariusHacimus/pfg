@@ -14,7 +14,7 @@ export default function TeamMember({ name, position, imageUrl }: TeamMemberProps
       />
       
       {/* Text Section */}
-      <div className="absolute bottom-0 left-0 right-0 h-[45px] bg-white px-0 py-0">
+      <div className="absolute bottom-0 left-0 right-0 h-[45px] bg-white pt-[10px]">
         {/* Name */}
         <div className="absolute left-0 top-[6px] w-full">
           <h4 className="text-[14px] leading-[17px] font-normal tracking-[0.01em] text-black">

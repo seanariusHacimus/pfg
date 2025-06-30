@@ -68,23 +68,48 @@ export const teamData = [
     imageUrl: '/media/profile.png'
   },
   {
-    name: 'Ойбек Батырович',
-    position: 'Директор и основатель',
+    name: 'Анна Сергеевна',
+    position: 'Финансовый директор',
+    imageUrl: '/media/profile_1.png'
+  },
+  {
+    name: 'Михаил Иванович',
+    position: 'Главный аналитик',
+    imageUrl: '/media/profile_2.png'
+  },
+  {
+    name: 'Елена Владимировна',
+    position: 'Руководитель департамента',
+    imageUrl: '/media/profile_3.png'
+  },
+  {
+    name: 'Дмитрий Александрович',
+    position: 'Старший брокер',
+    imageUrl: '/media/profile_4.png'
+  },
+  {
+    name: 'Светлана Николаевна',
+    position: 'Менеджер по работе с клиентами',
+    imageUrl: '/media/profile_2.png'
+  },
+  {
+    name: 'Алексей Петрович',
+    position: 'Юрист-консультант',
+    imageUrl: '/media/profile_3.png'
+  },
+  {
+    name: 'Мария Андреевна',
+    position: 'Специалист по инвестициям',
     imageUrl: '/media/profile.png'
   },
   {
-    name: 'Ойбек Батырович',
-    position: 'Директор и основатель',
-    imageUrl: '/media/profile.png'
+    name: 'Владимир Сергеевич',
+    position: 'Аналитик рынка',
+    imageUrl: '/media/profile_2.png'
   },
   {
-    name: 'Ойбек Батырович',
-    position: 'Директор и основатель',
-    imageUrl: '/media/profile.png'
-  },
-  {
-    name: 'Ойбек Батырович',
-    position: 'Директор и основатель',
+    name: 'Ольга Викторовна',
+    position: 'Специалист по депозитарию',
     imageUrl: '/media/profile.png'
   }
 ];
@@ -93,29 +118,29 @@ export const teamData = [
 export const newsData = {
   smallNews: [
     {
-      title: 'Московская биржа возобновляет утреннюю сессию с 27 января 2025 года',
+      title: 'Фонд Nomad Capitalвложил $20 млн в логистику Узбекистана',
       category: 'Рубрика',
-      date: '24 января 2025',
-      image: '/media/new-1.svg'
+      date: '25 июня 2025',
+      image: '/media/new-1.png'
     },
     {
-      title: 'Московская биржа возобновляет утреннюю сессию с 27 января 2025 года',
+      title: 'Центробанк Узбекистана расширил валютный коридор',
       category: 'Рубрика',
       date: '24 января 2025',
-      image: '/media/new-1.svg'
+      image: '/media/new-2.png'
     },
     {
-      title: 'Московская биржа возобновляет утреннюю сессию с 27 января 2025 года',
+      title: 'Новый финтех-стартап KassaU получил лицензию на цифровой банк',
       category: 'Рубрика',
       date: '24 января 2025',
-      image: '/media/new-1.svg'
+      image: '/media/new-3.png'
     }
   ],
   featuredNews: {
-    title: 'Московская биржа возобновляет утреннюю сессию с 27 января 2025 года Московская биржа возобновляет утреннюю',
+    title: 'Акции UzMetall подорожали на 14% после объявления экспорта в Европу',
     category: 'Рубрика',
     date: '24 января 2025',
-    image: '/media/new-1.svg'
+    image: '/media/new-4.png'
   }
 };
 

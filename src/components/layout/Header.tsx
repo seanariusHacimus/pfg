@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { DollarSign, Euro, Coins } from 'lucide-react';
 
 // Static data moved into the component file
 const currencyData = [
@@ -10,7 +11,7 @@ const currencyData = [
   { currency: 'рубля', icon: 'rubl', value: '13 003.95', change: '+14.88' }
 ];
 
-const stockData = Array(4).fill({ name: 'OZPH', value: '13 003.95', change: '+14.88' });
+const stockData = Array(5).fill({ name: 'OZPH', value: '13 003.95', change: '+14.88' });
 
 const navigationItems = [
   { name: 'Сделка', href: '#' },
@@ -20,12 +21,27 @@ const navigationItems = [
   { name: 'Открыть брокерский счет', href: '#' }
 ];
 
+const getCurrencyIcon = (iconType: string) => {
+  const iconProps = { size: 12, className: "text-white" };
+  
+  switch (iconType) {
+    case 'dollar':
+      return <DollarSign {...iconProps} />;
+    case 'euro':
+      return <Euro {...iconProps} />;
+    case 'rubl':
+      return <Coins {...iconProps} />;
+    default:
+      return <Coins {...iconProps} />;
+  }
+};
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 680);
+      setIsScrolled(window.scrollY > 600);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -33,40 +49,55 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`w-full border-white border-b-[1px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black -translate-y-[68px]' : 'bg-transparent translate-y-0'}`}>
-      <div className="border-white border-b-[1px]">
-        <div className="container max-w-[1440px] m-auto flex text-white">
-          <div className="pr-7 py-3">
-            <span className="text-[12px] text-white">Гарантийный фонд: <span className="ml-1 text-[12px]"> 169 716,76 сумов</span></span>
+    <header className={`w-full font-thin border-[#D8D8D8] border-b-[0.5px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black -translate-y-[0px]' : 'bg-transparent translate-y-0'}`}>
+      
+      <div className="border-[#D8D8D8] border-b-[0.5px]">
+        <div className="container max-w-[1340px] flex min-h-[44px] mx-auto">
+
+          <div className="min-w-[225px] flex items-center justify-center overflow-hidden relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8]">
+            <span className="text-xs text-white whitespace-nowrap">Гарантийный фонд: <span className="ml-1 text-xs"> 169 716,76 сумов</span></span>
           </div>
-          <div className="flex items-center px-7 py-3  gap-4 border-white border-l-[1px]">
-            {stockData.map((item, index) => (
-              <div className="flex text-[12px]" key={index}>
-                <span className="mr-1 font-medium">{item.name}</span>
-                <span className="mr-1 font-normal">{item.value}</span>
-                <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
-                <span className="text-[#00B81D]">{item.change}</span>
-              </div>
-            ))}
+
+          <div className="overflow-hidden flex items-center relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8] after:z-10">
+            <div className="flex animate-marquee">
+              {[...stockData, ...stockData, ...stockData].map((item, index) => (
+                <div className="flex text-xs flex-shrink-0 items-center px-2" key={index}>
+                  <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
+                  <span className="mr-[4px] font-normal whitespace-nowrap">{item.value}</span>
+                  <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
+                  <span className="text-[#00B81D] whitespace-nowrap">{item.change}</span>
+                </div>
+              ))}
+            </div>
+            <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-black' : 'from-[#223142]'}`}></div>
+            <div className={`absolute right-0 top-0 w-16 h-full bg-gradient-to-l to-transparent z-10 ${isScrolled ? 'from-black' : 'from-[#223142]'}`}></div>
           </div>
-          <div className="flex items-center gap-7 px-7 py-3 border-white border-r-[1px] border-l-[1px]">
-            {currencyData.map(({currency, icon, value, change}) => (
-              <div className="flex text-[12px]" key={currency}>
-                <Image className="mr-1" src={`/media/${icon}.svg`} alt={`${currency} icon`} width={10} height={10} />
-                <span className="mr-1">{value}</span>
-                <span className="mr-1 text-[#B2B2B2]">{change}</span>
-              </div>
-            ))}
+
+          <div className="relative pl-4 overflow-hidden flex items-center">
+            <div className="flex animate-marquee-slow">
+              {[...currencyData, ...currencyData, ...currencyData].map(({currency, icon, value, change}, index) => (
+                <div className="flex text-xs flex-shrink-0 items-center px-1" key={`${currency}-${index}`}>
+                  <span className='mr-[1px]'>{getCurrencyIcon(icon)}</span>
+                  <span className='mr-[2px] whitespace-nowrap'>{value}</span>
+                  <span className="text-[#B2B2B2] whitespace-nowrap">{change}</span>
+                </div>
+              ))}
+            </div>
+            <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-black' : 'from-[#223142]'}`}></div>
           </div>
+
         </div>
       </div>
-      <div className="container max-w-[1440px] m-auto flex items-center justify-between py-5">
+
+      <div className="container max-w-[1340px] m-auto flex items-center justify-between h-[75px]">
         <div className="flex">
-          <div>
+
+          <div className="pr-11">
             <Image src="/media/PFG Logo.svg" alt="PFG Logo" width={125} height={21} />
           </div>
-          <nav className="pl-11">
-            <ul className="flex gap-8 text-white text-[12px] items-center">
+
+          <nav className='flex items-center'>
+            <ul className="flex gap-8 text-sm items-center">
               {navigationItems.map((item) => (
                 <li key={item.name}>
                   <a href={item.href} className="hover:opacity-80">{item.name}</a>
@@ -74,17 +105,21 @@ export default function Header() {
               ))}
             </ul>
           </nav>
+
         </div>
         <div className="flex items-center">
+
           <div className="flex items-center gap-8 text-white">
-            <div className="flex items-center gap-2 text-[12px]">
+            <div className="flex items-center gap-2 text-sm">
               <Image src="/media/lang-arrow.svg" alt="language arrow right" width={6} height={6} />
               <span>RUSSIAN</span>
             </div>
             <a href="tel:+998712001234" className="hover:opacity-80 text-2xl leading-6">+998 71 200 12 34</a>
           </div>
+
         </div>
       </div>  
+
     </header>
   );
 } 

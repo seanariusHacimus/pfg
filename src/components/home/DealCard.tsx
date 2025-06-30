@@ -36,10 +36,10 @@ export default function DealCard({ title, parties, amount }: DealCardProps) {
       </div>
       
       {/* Separator line */}
-      <div className="w-full border-t-[0.5px] border-[#E8E8E8] my-4"></div>
+      <div className="w-full border-t-[0.5px] border-[#E8E8E8] my-[18px]"></div>
       
       {/* Deal amount */}
-      <div className="flex justify-between px-5 pb-4">
+      <div className="flex justify-between px-5 pb-[18px]">
         <span className="text-[14px] leading-[17px] font-normal text-[#ACACAC] tracking-[0.01em]">
           Сумма сделки
         </span>

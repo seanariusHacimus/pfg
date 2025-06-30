@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { DollarSign, Euro, Coins } from 'lucide-react';
 
 // Static data moved into the component file
 const footerSections = [
@@ -42,6 +43,21 @@ const currencyData = [
   { currency: 'рубля', icon: 'rubl', value: '13 003.95', change: '+14.88' }
 ];
 
+const getCurrencyIcon = (iconType: string) => {
+  const iconProps = { size: 14, className: "text-[#CACACA]" };
+  
+  switch (iconType) {
+    case 'dollar':
+      return <DollarSign {...iconProps} />;
+    case 'euro':
+      return <Euro {...iconProps} />;
+    case 'rubl':
+      return <Coins {...iconProps} />;
+    default:
+      return <Coins {...iconProps} />;
+  }
+};
+
 const contactInfo = [
   { title: 'Адрес', content: 'Улица Амира Тимура, 107B' },
   { title: 'Часы работы', content: 'Улица Амира Тимура, 107B' },
@@ -60,7 +76,7 @@ export default function Footer() {
             {footerSections.map((section) => (
               <div key={section.title} className="w-1/4">
                 <h4 className="text-[#2450C4] pb-3.5">{section.title}</h4>
-                <ul className="flex flex-col gap-2 text-[14px]">
+                <ul className="flex flex-col gap-2 text-xs">
                   {section.links.map((link) => (
                     <li key={link.name}>
                       <a href={link.href}>{link.name}</a>
@@ -73,10 +89,10 @@ export default function Footer() {
               <h4 className="text-[#2450C4] pb-3.5">Курс валют:</h4>
               <ul className="flex flex-col gap-2">
                 {currencyData.map(({currency, icon, value, change}) => (
-                  <li key={currency} className="flex text-[14px]">
-                    <Image className="block mr-1.5 invert" src={`/media/${icon}.svg`} alt={`${currency} icon`} width={14} height={14} />
+                  <li key={currency} className="flex text-xs items-center">
+                    <span className="mr-1.5">{getCurrencyIcon(icon)}</span>
                     <span>{value}</span>
-                    <span>{change}</span>
+                    <span className="ml-1.5 text-[#CACACA]">{change}</span>
                   </li>
                 ))}
               </ul>
@@ -87,8 +103,8 @@ export default function Footer() {
           <div className="flex w-1/2">
             {contactInfo.map((info) => (
               <div key={info.title} className="w-1/3">
-                <h4 className="text-[14px] text-[#2450C4] leading-4 pb-0.5">{info.title}</h4>
-                <p className="text-[14px] leading-4">{info.content}</p>
+                <h4 className="text-xs text-[#2450C4] leading-4 pb-0.5">{info.title}</h4>
+                <p className="text-xs leading-4">{info.content}</p>
               </div>
             ))}
           </div>
