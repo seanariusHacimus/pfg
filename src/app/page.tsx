@@ -26,7 +26,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="font-sans">
+    <div className="font-sans overflow-x-hidden">
       <Header />
 
       <section className="bg-gradient-to-b px-5" style={{ backgroundImage: "url('/media/banner.svg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
