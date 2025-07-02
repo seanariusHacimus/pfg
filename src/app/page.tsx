@@ -29,19 +29,19 @@ export default function Home() {
     <div className="font-sans">
       <Header />
 
-      <section className="bg-gradient-to-b" style={{ backgroundImage: "url('/media/banner.svg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="h-[725px] container max-w-[1340px] m-auto text-white flex flex-col justify-end">
-          <h1 className="text-[82px] leading-19 tracking-tight font-display">Ваш партнер<br /> в мире инвестиций<br /> и финансов</h1>
-          <div className="flex py-10 items-center">
-            <div className="flex gap-10 mr-19">
+      <section className="bg-gradient-to-b px-5" style={{ backgroundImage: "url('/media/banner.svg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="h-[600px] md:h-[725px] container max-w-[1340px] m-auto text-white flex flex-col justify-end">
+          <h1 className="text-[30px] leading-[31px] md:text-[82px] md:leading-19 tracking-tight font-display">Ваш партнер<br /> в мире инвестиций<br /> и финансов</h1>
+          <div className="flex pb-[30px] pt-9 md:py-10 items-center">
+            <div className="flex gap-8 md:gap-10 md:mr-19">
               {heroStats.map((stat, index) => (
                 <div key={index} className="flex flex-col">
-                  <span className="text-[32px] leading-[22px] tracking-[3%] md:text-[34px] md:leading-9 md:tracking-normal font-display font-normal">{stat.number}</span>
-                  <p className="text-2xl leading-[26px] font-sans font-light tracking-[2%">{stat.description}</p>
+                  <span className="text-[32px] leading-[22px] tracking-[3%] md:text-[34px] md:leading-9 md:tracking-normal font-display font-normal pb-2 md:pb-0">{stat.number}</span>
+                  <p className="text-[18px] leading-[17px] md:text-2xl md:leading-[26px] font-sans font-light tracking-[2%">{stat.description}</p>
                 </div>
               ))}
             </div>
-            <p className="text-2xl leading-[26px] font-sans font-light tracking-[2%]">Услуги в области инвестиционного посредничества,<br /> выпуска ценных бумаг и сопровождения сделок.</p>
+            <p className="hidden md:block text-2xl leading-[26px] font-sans font-light tracking-[2%]">Услуги в области инвестиционного посредничества,<br /> выпуска ценных бумаг и сопровождения сделок.</p>
           </div>
         </div>
       </section>
