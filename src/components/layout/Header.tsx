@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { DollarSign, Euro, RussianRuble, X } from 'lucide-react';
+import { DollarSign, Euro, RussianRuble } from 'lucide-react';
 
 // Static data moved into the component file
 const currencyData = [
