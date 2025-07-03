@@ -10,7 +10,7 @@ interface DealCardProps {
 
 export default function DealCard({ title, parties, amount }: DealCardProps) {
   return (
-    <div className="relative flex flex-col bg-white border border-[#E8E8E8] box-border flex-1 min-h-[250px]">
+    <div className="max-w-[250px] w-full md:max-w-auto relative flex flex-col bg-white border border-[#E8E8E8] box-border flex-1 min-w-[250px] min-h-[260px]">
       {/* Title */}
       <h4 className="text-[16px] leading-[18px] font-medium text-[#2450C4] mb-auto px-5 pt-5">
         {title}

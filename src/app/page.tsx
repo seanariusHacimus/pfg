@@ -12,6 +12,8 @@ import WhyUsItem from '@/components/home/WhyUsItem';
 import TeamSlider from '@/components/home/TeamSlider';
 import NewsItem from '@/components/home/NewsItem';
 import BrokerCard from '@/components/home/BrokerCard';
+import DealSlider from '@/components/home/DealSlider';
+import WhyUsSlider from '@/components/home/WhyUsSlider';
 
 // Import data
 import { 
@@ -106,8 +108,13 @@ export default function Home() {
       </section>
 
       <section className="bg-[#F2F4F7] text-black px-5">
-        <div className="container max-w-[1340px] m-auto pb-[50px]">
-          <div className="flex flex-col gap-[10px]">
+        <div className="container max-w-[1340px] m-auto pb-[30px] md:pb-[50px]">
+          {/* Mobile sliding version */}
+          <div className="md:hidden">
+            <WhyUsSlider whyUsData={whyUsData.flat()} />
+          </div>
+          {/* Desktop version */}
+          <div className="hidden md:flex md:flex-col gap-[10px]">
             {whyUsData.map((row, rowIndex) => (
               <div key={rowIndex} className="flex gap-[10px]">
                 {row.map((item, index) => (
@@ -119,17 +126,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white text-black">
-        <div className="container max-w-[1340px] m-auto py-[50px]">
-          <h2 className="text-[34px] leading-9 pb-[50px] text-[#2450C4] font-display font-normal">Наша команда</h2>
+      <section className="bg-white text-black px-5">
+        <div className="container max-w-[1340px] m-auto py-[30px] md:py-[50px]">
+          <h2 className="text-2xl sm:text-3xl md:text-[34px] leading-tight pb-[30px] md:pb-[50px] text-[#2450C4] font-display font-normal">Наша команда</h2>
           <TeamSlider teamData={teamData} />
         </div>
       </section>
 
-      <section className="bg-[#F2F4F7] text-black bg-cover bg-center">
-        <div className="container max-w-[1340px] m-auto py-[50px]">
-          <h2 className="text-[34px] leading-9 pb-[50px] text-[#2450C4] font-display font-normal">Наши сделки</h2>
-          <div className="flex gap-[10px]">
+      <section className="bg-[#F2F4F7] text-black bg-cover bg-center px-5">
+        <div className="container max-w-[1340px] m-auto py-[30px] md:py-[50px]">
+          <h2 className="text-2xl sm:text-3xl md:text-[34px] leading-tight pb-[30px] md:pb-[50px] text-[#2450C4] font-display font-normal">Наши сделки</h2>
+          {/* Mobile sliding version */}
+          <div className="md:hidden">
+            <DealSlider dealsData={dealsData} />
+          </div>
+          {/* Desktop version */}
+          <div className="hidden md:flex gap-[10px]">
             {dealsData.map((deal, index) => (
               <DealCard 
                 key={index} 
@@ -142,11 +154,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white text-black">
-        <div className="container max-w-[1340px] m-auto py-[50px]">
-          <h2 className="text-[34px] leading-9 pb-[50px] text-[#2450C4] font-display font-normal">Новости</h2>
-          <div className="flex gap-[10px]">
-            <div className="w-1/2">
+      <section className="bg-white text-black px-5">
+        <div className="container max-w-[1340px] m-auto py-[30px] md:py-[50px]">
+          <h2 className="text-2xl sm:text-3xl md:text-[34px] leading-tight pb-[30px] md:pb-[50px] text-[#2450C4] font-display font-normal">Новости</h2>
+          <div className="flex flex-col md:flex-row md:gap-[10px]">
+            <div className="w-full md:w-1/2">
               {newsData.smallNews.map((news, index) => (
                 <NewsItem 
                   key={index}
@@ -157,7 +169,7 @@ export default function Home() {
                 />
               ))}
             </div>
-            <div className="w-1/2">
+            <div className="w-full md:w-1/2">
               <NewsItem 
                 title={newsData.featuredNews.title}
                 category={newsData.featuredNews.category}

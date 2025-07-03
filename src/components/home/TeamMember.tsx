@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface TeamMemberProps {
   name: string;
   position: string;
@@ -6,28 +8,28 @@ interface TeamMemberProps {
 
 export default function TeamMember({ name, position, imageUrl }: TeamMemberProps) {
   return (
-    <div className="relative w-[260px] h-[320px] bg-white">
+    <div className="flex flex-col min-w-[170px] w-[170px] md:w-[260px] bg-white">
       {/* Photo Section */}
-      <div 
-        className="absolute inset-0 top-0 h-[275px] bg-cover bg-center"
-        style={{ backgroundImage: `url('${imageUrl}')` }}
-      />
+      <div className="relative h-[155px] md:h-[275px] overflow-hidden">
+        <Image 
+          src={imageUrl}
+          alt={name}
+          fill
+          className="object-cover object-center"
+        />
+      </div>
       
       {/* Text Section */}
-      <div className="absolute bottom-0 left-0 right-0 h-[45px] bg-white pt-[10px]">
+      <div className="h-[45px] bg-white flex flex-col justify-center px-0 pt-[11px]">
         {/* Name */}
-        <div className="absolute left-0 top-[6px] w-full">
-          <h4 className="text-[14px] leading-[17px] font-normal tracking-[0.01em] text-black">
-            {name}
-          </h4>
-        </div>
+        <h4 className="text-[14px] leading-[17px] font-normal tracking-[0.01em] text-black">
+          {name}
+        </h4>
         
         {/* Position */}
-        <div className="absolute left-0 top-[23px] w-full">
-          <p className="text-[14px] leading-[17px] font-normal tracking-[0.01em] text-[#A0A0A0]">
-            {position}
-          </p>
-        </div>
+        <p className="text-[14px] leading-[17px] font-normal tracking-[0.01em] text-[#A0A0A0]">
+          {position}
+        </p>
       </div>
     </div>
   );

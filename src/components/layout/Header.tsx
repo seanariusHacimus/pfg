@@ -18,7 +18,7 @@ const navigationItems = [
   { name: 'Услуги', href: '#' },
   { name: 'Новости', href: '#' },
   { name: 'О нас', href: '#' },
-  { name: 'Открыть брокерский счет', href: '#' }
+  { name: 'Брокерский счет', href: '#' }
 ];
 
 const getCurrencyIcon = (iconType: string) => {
@@ -106,11 +106,11 @@ export default function Header() {
         </div>
 
         {/* Main header */}
-        <div className="container max-w-[1340px] m-auto flex items-center justify-between h-[60px] md:h-[75px] px-4 md:px-0">
+        <div className="container max-w-[1340px] m-auto flex items-center justify-between py-[18px] md:py-[0px] md:h-[75px] px-4 md:px-0">
           <div className="flex">
 
             <div className="max-w-[95px] md:max-w-[125px] md:pr-11">
-              <Image src={isScrolled ? "/media/pfg-logo-footer.svg" : "/media/PFG Logo.svg"} alt="PFG Logo" width={125} height={21} />
+              <Image src={isScrolled ? "/media/pfg-logo-footer.svg" : "/media/PFG Logo.svg"} alt="PFG Logo" width={95} height={26} />
             </div>
 
             {/* Desktop Navigation */}
@@ -181,7 +181,7 @@ export default function Header() {
             
             {/* Mobile Menu Stocks Section */}
             <div className="border-b border-[#D8D8D8]">
-              <div className="overflow-hidden flex items-center min-h-[44px] relative">
+              <div className="overflow-hidden flex items-center min-h-[33px] relative">
                 <div className="flex animate-marquee">
                   {[...stockData, ...stockData, ...stockData].map((item, index) => (
                     <div className="flex text-xs flex-shrink-0 items-center px-2 text-black" key={index}>
@@ -200,15 +200,14 @@ export default function Header() {
             <div className="container max-w-[1340px] mx-auto flex-1 flex flex-col">
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between py-[18px] px-4 border-b border-gray-200">
-                <Image src="/media/pfg-logo-footer.svg" alt="PFG Logo" width={125} height={21} />
-                <div className="flex items-center gap-4">
+                <Image src="/media/pfg-logo-footer.svg" className='max-h-[26px]' alt="PFG Logo" width={95} height={26} />
+                <div className="flex items-center gap-8">
                   <div className="flex items-center gap-2 text-sm">
                     <Image src="/media/lang-arrow-black.svg" alt="language arrow right" width={6} height={6} />
                     <span className="text-black">RU</span>
                   </div>
                   <button 
                     onClick={closeMobileMenu}
-                    className="p-2"
                     aria-label="Close menu"
                   >
                     <Image src="/media/mobile-close.svg" alt='mobile close button' width={23} height={23} />
