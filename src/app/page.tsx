@@ -21,12 +21,13 @@ import {
   dealsData, 
   teamData, 
   newsData,
-  brokerData 
+  brokerData,
+  partnersLogos 
 } from '@/components/data';
 
 export default function Home() {
   return (
-    <div className="font-sans overflow-x-hidden">
+    <div className="font-sans">
       <Header />
 
       <section className="bg-gradient-to-b px-5" style={{ backgroundImage: "url('/media/banner.svg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -46,10 +47,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white text-black">
-        <div className="container max-w-[1340px] m-auto pt-[50px] pb-[20px]">
-          <h2 className="text-[34px] leading-9 pb-[50px] text-[#2450C4] font-display font-normal">Наши услуги</h2>
-          <div className="flex gap-3">
+      <section className="bg-white text-black px-5 pt-[30px] md:py-0">
+        <div className="container max-w-[1340px] m-auto md:pt-[50px] md:pb-[20px]">
+          <h2 className="pb-[35px] text-[25px] leading-[27px] md:text-[34px] md:leading-9 md:pb-[50px] text-[#2450C4] font-display font-normal">Наши услуги</h2>
+          <div className="grid grid-cols-2 gap-[10px] md:flex md:gap-[10px]">
             {servicesData.map((service, index) => (
               <ServiceCard key={index} title={service.title} icon={service.icon} />
             ))}
@@ -57,15 +58,38 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white text-black">
-        <div className="container max-w-[1340px] m-auto py-14">
-          <Image className="w-full" src="/media/partners full.svg" alt="" width={1440} height={100} />
+      <section className="bg-white text-black overflow-hidden py-[34px] md:py-[70px]">
+        <div className="flex whitespace-nowrap animate-marquee-partners items-center gap-[54px]">
+          {/* First set of logos */}
+          {partnersLogos.map((logo, index) => (
+            <div key={`first-${index}`} className="flex-shrink-0">
+              <Image 
+                className="h-[22px] sm:h-[27px] md:h-12 w-auto object-contain" 
+                src={`/media/${logo}`} 
+                alt={`Partner logo ${index + 1}`} 
+                width={100} 
+                height={48} 
+              />
+            </div>
+          ))}
+          {/* Second set of logos for seamless loop */}
+          {partnersLogos.map((logo, index) => (
+            <div key={`second-${index}`} className="flex-shrink-0">
+              <Image 
+                className="h-[22px] sm:h-[27px] md:h-12 w-auto object-contain" 
+                src={`/media/${logo}`} 
+                alt={`Partner logo ${index + 1}`} 
+                width={100} 
+                height={48} 
+              />
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="bg-[#F2F4F7] text-black">
-        <div className="container max-w-[1340px] m-auto pt-[50px] pb-[10px]">
-          <h2 className="text-2xl sm:text-3xl md:text-[34px] leading-tight pb-4 md:pb-10 text-[#2450C4] font-display font-normal">
+      <section className="bg-[#F2F4F7] text-black px-5">
+        <div className="container max-w-[1340px] m-auto pt-[30px] md:pt-[50px] pb-[20px] md:pb-[10px]">
+          <h2 className="text-2xl sm:text-3xl md:text-[34px] leading-tight pb-[30px] md:pb-10 text-[#2450C4] font-display font-normal">
             Быть удобным брокером <br></br> для своего клиента
           </h2>
           <div className="flex flex-col sm:flex-row gap-[10px] md:gap-[10px]">
@@ -74,14 +98,14 @@ export default function Home() {
                 key={index}
                 imageUrl={broker.imageUrl}
                 title={broker.title}
-                className="w-1/2" // Added w-1/2 to make each card take 50% width
+                className="w-full md:w-1/2 min-h-[200px]"
               />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F2F4F7] text-black">
+      <section className="bg-[#F2F4F7] text-black px-5">
         <div className="container max-w-[1340px] m-auto pb-[50px]">
           <div className="flex flex-col gap-[10px]">
             {whyUsData.map((row, rowIndex) => (

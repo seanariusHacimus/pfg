@@ -154,4 +154,16 @@ export const brokerData = [
     imageUrl: "/media/offer2.svg", 
     title: "Депозитарные услуги"
   }
+];
+
+// Partner logos data
+export const partnersLogos = [
+  'partner-logo-1.svg',
+  'partner-logo-2.svg',
+  'partner-logo-3.svg',
+  'partner-logo-4.svg',
+  'partner-logo-5.svg',
+  'partner-logo-6.svg',
+  'partner-logo-7.svg',
+  'partner-logo-8.svg'
 ]; 
