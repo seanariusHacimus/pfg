@@ -42,17 +42,44 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
     }
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      checkScrollButtons();
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const calculateItemWidth = () => {
+    if (sliderRef.current) {
+      const firstItem = sliderRef.current.querySelector('.deal-item');
+      if (firstItem) {
+        const itemWidth = firstItem.getBoundingClientRect().width;
+        const gap = 10; // 10px gap between items
+        return itemWidth + gap;
+      }
+    }
+    return 310; // Fallback value (300px width + 10px gap)
+  };
+
   const scrollToDirection = (direction: 'left' | 'right') => {
     if (sliderRef.current) {
-      const scrollAmount = 300; // Adjust based on card width
-      const newScrollLeft = direction === 'left' 
-        ? sliderRef.current.scrollLeft - scrollAmount
-        : sliderRef.current.scrollLeft + scrollAmount;
-      
-      sliderRef.current.scrollTo({
-        left: newScrollLeft,
-        behavior: 'smooth'
-      });
+      // Small delay to ensure DOM is fully rendered
+      setTimeout(() => {
+        const itemWidth = calculateItemWidth();
+        const itemsToScroll = window.innerWidth < 768 ? 1 : 2; // 1 item on mobile, 2 on desktop
+        const scrollAmount = itemWidth * itemsToScroll;
+        
+        const newScrollLeft = direction === 'left' 
+          ? sliderRef.current!.scrollLeft - scrollAmount
+          : sliderRef.current!.scrollLeft + scrollAmount;
+        
+        sliderRef.current!.scrollTo({
+          left: newScrollLeft,
+          behavior: 'smooth'
+        });
+      }, 10);
     }
   };
 
@@ -101,7 +128,7 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
   };
 
   return (
-    <div className="relative overflow-x-visible overflow-y-hidden scrollbar-hide">
+    <div className="relative overflow-x-visible overflow-y-hidden scrollbar-hide -mx-5 md:mx-0">
       {/* Left Arrow */}
       <button
         onClick={() => scrollToDirection('left')}
@@ -129,7 +156,7 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
       {/* Slider Container */}
       <div
         ref={sliderRef}
-        className={`overflow-x-auto overflow-y-hidden scrollbar-hide ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+        className={`overflow-x-auto overflow-y-hidden scrollbar-hide px-5 md:px-0 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -139,9 +166,9 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
         onTouchEnd={handleTouchEnd}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        <div className="flex gap-[10px] w-max">
+        <div className="flex gap-[10px] w-max pl-5 pr-5 md:pr-0 md:pl-0">
           {dealsData.map((deal, index) => (
-            <div key={index} className="flex-shrink-0">
+            <div key={index} className="flex-shrink-0 deal-item">
               <DealCard 
                 title={deal.title} 
                 parties={deal.parties} 

@@ -25,8 +25,8 @@ export default function BrokerCard({ imageUrl, title, className }: BrokerCardPro
       </div>
       
       {/* Details Button */}
-      <div className="absolute bg-[#F3F7FA] md:bg-transparent text-black left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-8 md:bottom-8 w-28 h-12 sm:w-32 sm:h-14 md:w-36 md:h-15 flex justify-center items-center border border-[#F3F7FA] box-border z-10 md:hover:bg-[#F3F7FA] md:hover:text-black transition-colors duration-300 cursor-pointer">
-        <span className="text-sm sm:text-base md:text-lg font-light tracking-wide md:text-white md:hover:text-black transition-colors duration-300">
+      <div className="absolute bg-[#F3F7FA] md:text-white md:hover:text-black md:bg-transparent left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-8 md:bottom-8 w-28 h-12 sm:w-32 sm:h-14 md:w-36 md:h-15 flex justify-center items-center border border-[#F3F7FA] box-border z-10 md:hover:bg-[#F3F7FA] transition-colors duration-300 cursor-pointer">
+        <span className="text-sm sm:text-base md:text-lg font-light tracking-wide transition-colors duration-300">
           Подробнее
         </span>
       </div>

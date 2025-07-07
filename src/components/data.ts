@@ -79,7 +79,7 @@ export const teamData = [
   },
   {
     name: 'Елена Владимировна',
-    position: 'Руководитель департамента',
+    position: 'Руководитель отдела',
     imageUrl: '/media/profile_3.png'
   },
   {
@@ -89,7 +89,7 @@ export const teamData = [
   },
   {
     name: 'Светлана Николаевна',
-    position: 'Менеджер по работе с клиентами',
+    position: 'Клиент-менеджер',
     imageUrl: '/media/profile_2.png'
   },
   {
@@ -99,7 +99,7 @@ export const teamData = [
   },
   {
     name: 'Мария Андреевна',
-    position: 'Специалист по инвестициям',
+    position: 'Инвест-консультант',
     imageUrl: '/media/profile.png'
   },
   {
@@ -109,7 +109,7 @@ export const teamData = [
   },
   {
     name: 'Ольга Викторовна',
-    position: 'Специалист по депозитарию',
+    position: 'Консультант',
     imageUrl: '/media/profile.png'
   }
 ];

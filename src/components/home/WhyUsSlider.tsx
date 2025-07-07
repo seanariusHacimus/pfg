@@ -37,17 +37,44 @@ export default function WhyUsSlider({ whyUsData }: WhyUsSliderProps) {
     }
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      checkScrollButtons();
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const calculateItemWidth = () => {
+    if (sliderRef.current) {
+      const firstItem = sliderRef.current.querySelector('.whyus-item');
+      if (firstItem) {
+        const itemWidth = firstItem.getBoundingClientRect().width;
+        const gap = 10; // 10px gap between items
+        return itemWidth + gap;
+      }
+    }
+    return 290; // Fallback value (280px width + 10px gap)
+  };
+
   const scrollToDirection = (direction: 'left' | 'right') => {
     if (sliderRef.current) {
-      const scrollAmount = 280; // Adjust based on card width
-      const newScrollLeft = direction === 'left' 
-        ? sliderRef.current.scrollLeft - scrollAmount
-        : sliderRef.current.scrollLeft + scrollAmount;
-      
-      sliderRef.current.scrollTo({
-        left: newScrollLeft,
-        behavior: 'smooth'
-      });
+      // Small delay to ensure DOM is fully rendered
+      setTimeout(() => {
+        const itemWidth = calculateItemWidth();
+        const itemsToScroll = window.innerWidth < 768 ? 1 : 2; // 1 item on mobile, 2 on desktop
+        const scrollAmount = itemWidth * itemsToScroll;
+        
+        const newScrollLeft = direction === 'left' 
+          ? sliderRef.current!.scrollLeft - scrollAmount
+          : sliderRef.current!.scrollLeft + scrollAmount;
+        
+        sliderRef.current!.scrollTo({
+          left: newScrollLeft,
+          behavior: 'smooth'
+        });
+      }, 10);
     }
   };
 
@@ -96,7 +123,7 @@ export default function WhyUsSlider({ whyUsData }: WhyUsSliderProps) {
   };
 
   return (
-    <div className="relative overflow-x-visible overflow-y-hidden scrollbar-hide">
+    <div className="relative overflow-x-visible overflow-y-hidden scrollbar-hide -mx-5 md:mx-0">
       {/* Left Arrow */}
       <button
         onClick={() => scrollToDirection('left')}
@@ -124,7 +151,7 @@ export default function WhyUsSlider({ whyUsData }: WhyUsSliderProps) {
       {/* Slider Container */}
       <div
         ref={sliderRef}
-        className={`overflow-x-auto overflow-y-hidden scrollbar-hide ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+        className={`overflow-x-auto overflow-y-hidden scrollbar-hide px-5 md:px-0 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -134,9 +161,9 @@ export default function WhyUsSlider({ whyUsData }: WhyUsSliderProps) {
         onTouchEnd={handleTouchEnd}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        <div className="flex gap-[10px] w-max">
+        <div className="flex gap-[10px] w-max pl-5 pr-5 md:pr-0 md:pl-0">
           {whyUsData.map((item, index) => (
-            <div key={index} className="flex-shrink-0">
+            <div key={index} className="flex-shrink-0 whyus-item">
               <WhyUsItem title={item.title} icon={item.icon} />
             </div>
           ))}

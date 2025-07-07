@@ -57,6 +57,53 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  // Dynamic fade function
+  useEffect(() => {
+    const applyDynamicFade = (containerId: string) => {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      const updateOpacity = () => {
+        const containerRect = container.getBoundingClientRect();
+        const containerWidth = containerRect.width;
+        const fadeDistance = 80; // Fixed 30px fade distance
+        
+        const items = container.querySelectorAll('[data-ticker-item]');
+        
+        items.forEach((item) => {
+          const itemRect = item.getBoundingClientRect();
+          const itemCenter = itemRect.left + itemRect.width / 2 - containerRect.left;
+          
+          let opacity = 1;
+          
+          // Left fade with stronger curve
+          if (itemCenter < fadeDistance) {
+            const normalizedPosition = itemCenter / fadeDistance;
+            opacity = Math.max(0, Math.pow(normalizedPosition, 3)); // Cubic curve for stronger fade
+          }
+          // Right fade with stronger curve
+          else if (itemCenter > containerWidth - fadeDistance) {
+            const normalizedPosition = (containerWidth - itemCenter) / fadeDistance;
+            opacity = Math.max(0, Math.pow(normalizedPosition, 3)); // Cubic curve for stronger fade
+          }
+          
+          // Apply opacity with smooth transition
+          (item as HTMLElement).style.opacity = opacity.toString();
+          (item as HTMLElement).style.transition = 'opacity 0.05s ease-out';
+        });
+        
+        requestAnimationFrame(updateOpacity);
+      };
+      
+      updateOpacity();
+    };
+
+    // Apply to all ticker sections with 30px fade distance
+    applyDynamicFade('stock-ticker');
+    applyDynamicFade('currency-ticker');
+    applyDynamicFade('mobile-ticker');
+  }, []);
+
   return (
     <>
       <header 
@@ -74,10 +121,10 @@ export default function Header() {
               <span className="text-xs whitespace-nowrap">Гарантийный фонд: <span className="ml-1 text-xs"> 169 716,76 сумов</span></span>
             </div>
 
-            <div className="overflow-hidden flex items-center relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8] after:z-10">
+            <div id="stock-ticker" className="overflow-hidden flex items-center relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8] after:z-10">
               <div className="flex animate-marquee">
                 {[...stockData, ...stockData, ...stockData].map((item, index) => (
-                  <div className="flex text-xs flex-shrink-0 items-center px-2" key={index}>
+                  <div data-ticker-item className="flex text-xs flex-shrink-0 items-center px-2" key={index}>
                     <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
                     <span className="mr-[4px] font-normal whitespace-nowrap">{item.value}</span>
                     <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
@@ -85,21 +132,18 @@ export default function Header() {
                   </div>
                 ))}
               </div>
-              <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-white' : 'from-[#223142]'}`}></div>
-              <div className={`absolute right-0 top-0 w-16 h-full bg-gradient-to-l to-transparent z-10 ${isScrolled ? 'from-white' : 'from-[#223142]'}`}></div>
             </div>
 
-            <div className="hidden relative pl-4 overflow-hidden md:flex items-center">
+            <div id="currency-ticker" className="hidden relative pl-4 overflow-hidden md:flex items-center">
               <div className="flex animate-marquee-slow">
                 {[...currencyData, ...currencyData, ...currencyData].map(({currency, icon, value, change}, index) => (
-                  <div className="flex text-xs flex-shrink-0 items-center px-1" key={`${currency}-${index}`}>
+                  <div data-ticker-item className="flex text-xs flex-shrink-0 items-center px-1" key={`${currency}-${index}`}>
                     <span className='mr-[1px]'>{getCurrencyIcon(icon)}</span>
                     <span className='mr-[2px] whitespace-nowrap'>{value}</span>
                     <span className="text-[#B2B2B2] whitespace-nowrap">{change}</span>
                   </div>
                 ))}
               </div>
-              <div className={`absolute left-0 top-0 w-16 h-full bg-gradient-to-r to-transparent z-10 ${isScrolled ? 'from-white' : 'from-[#223142]'}`}></div>
             </div>
 
           </div>
@@ -118,7 +162,7 @@ export default function Header() {
               <ul className="flex gap-8 text-sm items-center">
                 {navigationItems.map((item) => (
                   <li key={item.name}>
-                    <a href={item.href} className="hover:opacity-80">{item.name}</a>
+                    <a href={item.href} className="hover:opacity-80 font-regular">{item.name}</a>
                   </li>
                 ))}
               </ul>
@@ -181,10 +225,10 @@ export default function Header() {
             
             {/* Mobile Menu Stocks Section */}
             <div className="border-b border-[#D8D8D8]">
-              <div className="overflow-hidden flex items-center min-h-[33px] relative">
+              <div id="mobile-ticker" className="overflow-hidden flex items-center min-h-[33px] relative">
                 <div className="flex animate-marquee">
                   {[...stockData, ...stockData, ...stockData].map((item, index) => (
-                    <div className="flex text-xs flex-shrink-0 items-center px-2 text-black" key={index}>
+                    <div data-ticker-item className="flex text-xs flex-shrink-0 items-center px-2 text-black" key={index}>
                       <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
                       <span className="mr-[4px] font-normal whitespace-nowrap">{item.value}</span>
                       <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
@@ -192,8 +236,6 @@ export default function Header() {
                     </div>
                   ))}
                 </div>
-                <div className="absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
-                <div className="absolute right-0 top-0 w-16 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
               </div>
             </div>
 
@@ -201,7 +243,7 @@ export default function Header() {
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between py-[18px] px-4 border-b border-gray-200">
                 <Image src="/media/pfg-logo-footer.svg" className='max-h-[26px]' alt="PFG Logo" width={95} height={26} />
-                <div className="flex items-center gap-8">
+                <div className="flex items-center gap-9">
                   <div className="flex items-center gap-2 text-sm">
                     <Image src="/media/lang-arrow-black.svg" alt="language arrow right" width={6} height={6} />
                     <span className="text-black">RU</span>

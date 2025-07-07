@@ -1,4 +1,4 @@
-"use client"
+ "use client"
 
 import Image from 'next/image';
 import React from 'react';
@@ -29,7 +29,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="font-sans">
+    <div className="font-sans overflow-x-hidden">
       <Header />
 
       <section className="bg-gradient-to-b px-5" style={{ backgroundImage: "url('/media/banner.svg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -107,7 +107,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#F2F4F7] text-black px-5">
+      <section className="bg-[#F2F4F7] text-black md:px-5">
         <div className="container max-w-[1340px] m-auto pb-[30px] md:pb-[50px]">
           {/* Mobile sliding version */}
           <div className="md:hidden">
@@ -126,16 +126,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white text-black px-5">
+      <section className="bg-white text-black md:px-5">
         <div className="container max-w-[1340px] m-auto py-[30px] md:py-[50px]">
-          <h2 className="text-2xl sm:text-3xl md:text-[34px] leading-tight pb-[30px] md:pb-[50px] text-[#2450C4] font-display font-normal">Наша команда</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-[34px] leading-tight pb-[30px] md:pb-[50px] text-[#2450C4] font-display font-normal px-5 md:px-0">Наша команда</h2>
           <TeamSlider teamData={teamData} />
         </div>
       </section>
 
-      <section className="bg-[#F2F4F7] text-black bg-cover bg-center px-5">
+      <section className="bg-[#F2F4F7] text-black bg-cover bg-center md:px-5">
         <div className="container max-w-[1340px] m-auto py-[30px] md:py-[50px]">
-          <h2 className="text-2xl sm:text-3xl md:text-[34px] leading-tight pb-[30px] md:pb-[50px] text-[#2450C4] font-display font-normal">Наши сделки</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-[34px] leading-tight pb-[30px] md:pb-[50px] text-[#2450C4] font-display font-normal px-5 md:px-0">Наши сделки</h2>
           {/* Mobile sliding version */}
           <div className="md:hidden">
             <DealSlider dealsData={dealsData} />
