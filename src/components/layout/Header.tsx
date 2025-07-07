@@ -57,52 +57,7 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   };
 
-  // Dynamic fade function
-  useEffect(() => {
-    const applyDynamicFade = (containerId: string) => {
-      const container = document.getElementById(containerId);
-      if (!container) return;
 
-      const updateOpacity = () => {
-        const containerRect = container.getBoundingClientRect();
-        const containerWidth = containerRect.width;
-        const fadeDistance = 80; // Fixed 30px fade distance
-        
-        const items = container.querySelectorAll('[data-ticker-item]');
-        
-        items.forEach((item) => {
-          const itemRect = item.getBoundingClientRect();
-          const itemCenter = itemRect.left + itemRect.width / 2 - containerRect.left;
-          
-          let opacity = 1;
-          
-          // Left fade with stronger curve
-          if (itemCenter < fadeDistance) {
-            const normalizedPosition = itemCenter / fadeDistance;
-            opacity = Math.max(0, Math.pow(normalizedPosition, 3)); // Cubic curve for stronger fade
-          }
-          // Right fade with stronger curve
-          else if (itemCenter > containerWidth - fadeDistance) {
-            const normalizedPosition = (containerWidth - itemCenter) / fadeDistance;
-            opacity = Math.max(0, Math.pow(normalizedPosition, 3)); // Cubic curve for stronger fade
-          }
-          
-          // Apply opacity with smooth transition
-          (item as HTMLElement).style.opacity = opacity.toString();
-          (item as HTMLElement).style.transition = 'opacity 0.05s ease-out';
-        });
-        
-        requestAnimationFrame(updateOpacity);
-      };
-      
-      updateOpacity();
-    };
-
-    // Apply to all ticker sections with 30px fade distance
-    applyDynamicFade('stock-ticker');
-    applyDynamicFade('currency-ticker');
-    applyDynamicFade('mobile-ticker');
-  }, []);
 
   return (
     <>
@@ -115,34 +70,38 @@ export default function Header() {
         
         {/* Top ticker section */}
         <div className="border-[#D8D8D8] border-b-[0.5px]">
-          <div className="container max-w-[1340px] flex md:min-h-[44px] min-h-[33px] mx-auto">
+          <div className="container max-w-[1340px] flex md:min-h-[44px] min-h-[33px] mx-auto overflow-hidden">
 
             <div className="hidden min-w-[225px] md:flex items-center justify-center overflow-hidden relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8]">
-              <span className="text-xs whitespace-nowrap">Гарантийный фонд: <span className="ml-1 text-xs"> 169 716,76 сумов</span></span>
+              <span className="text-xs whitespace-nowrap font-normal">Гарантийный фонд: <span className="ml-1 text-xs"> 169 716,76 сумов</span></span>
             </div>
 
-            <div id="stock-ticker" className="overflow-hidden flex items-center relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8] after:z-10">
-              <div className="flex animate-marquee">
-                {[...stockData, ...stockData, ...stockData].map((item, index) => (
-                  <div data-ticker-item className="flex text-xs flex-shrink-0 items-center px-2" key={index}>
-                    <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
-                    <span className="mr-[4px] font-normal whitespace-nowrap">{item.value}</span>
-                    <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
-                    <span className="text-[#00B81D] whitespace-nowrap">{item.change}</span>
-                  </div>
-                ))}
+            <div className="flex items-center relative flex-1 md:w-[60%] after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8] after:z-10">
+              <div className="overflow-hidden w-full mx-[5px]">
+                <div className="flex animate-marquee">
+                  {[...stockData, ...stockData, ...stockData].map((item, index) => (
+                    <div className="flex text-xs flex-shrink-0 items-center px-2" key={index}>
+                      <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
+                      <span className="mr-[4px] font-normal whitespace-nowrap">{item.value}</span>
+                      <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
+                      <span className="text-[#00B81D] whitespace-nowrap font-normal">{item.change}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div id="currency-ticker" className="hidden relative pl-4 overflow-hidden md:flex items-center">
-              <div className="flex animate-marquee-slow">
-                {[...currencyData, ...currencyData, ...currencyData].map(({currency, icon, value, change}, index) => (
-                  <div data-ticker-item className="flex text-xs flex-shrink-0 items-center px-1" key={`${currency}-${index}`}>
-                    <span className='mr-[1px]'>{getCurrencyIcon(icon)}</span>
-                    <span className='mr-[2px] whitespace-nowrap'>{value}</span>
-                    <span className="text-[#B2B2B2] whitespace-nowrap">{change}</span>
-                  </div>
-                ))}
+            <div className="relative hidden md:flex items-center min-h-[44px] flex-1">
+              <div className="overflow-hidden w-full mx-[5px] h-[44px] flex items-center">
+                <div className="flex animate-marquee-slow">
+                  {[...currencyData, ...currencyData, ...currencyData].map(({currency, icon, value, change}, index) => (
+                    <div className="flex text-xs flex-shrink-0 items-center px-1" key={`${currency}-${index}`}>
+                      <span className='mr-[1px]'>{getCurrencyIcon(icon)}</span>
+                      <span className='mr-[2px] whitespace-nowrap font-normal'>{value}</span>
+                      <span className="text-[#B2B2B2] whitespace-nowrap font-normal">{change}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -175,7 +134,7 @@ export default function Header() {
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-2 text-sm">
                 <Image src="/media/lang-arrow.svg" alt="language arrow right" width={6} height={6} />
-                <span>RUSSIAN</span>
+                <span className='font-normal'>RUSSIAN</span>
               </div>
               <a href="tel:+998712001234" className="hover:opacity-80 text-2xl leading-6">+998 71 200 12 34</a>
             </div>
@@ -184,9 +143,21 @@ export default function Header() {
           {/* Mobile Right Side */}
           <div className="flex md:hidden items-center gap-7 md:gap-3">
             <div className="flex items-center gap-2 text-sm">
-              <Image className='md:hidden' src="/media/lang-arrow-black.svg" alt="language arrow right" width={6} height={6} />
-              <Image className='hidden md:block' src="/media/lang-arrow.svg" alt="language arrow right" width={6} height={6} />
-              <span>RU</span>
+              <Image 
+                className='md:hidden' 
+                src={isScrolled ? "/media/lang-arrow-black.svg" : "/media/lang-arrow.svg"} 
+                alt="language arrow right" 
+                width={6} 
+                height={6} 
+              />
+              <Image 
+                className='hidden md:block' 
+                src="/media/lang-arrow.svg" 
+                alt="language arrow right" 
+                width={6} 
+                height={6} 
+              />
+              <span className='font-normal'>RU</span>
             </div>
             
             {/* Mobile Hamburger Menu */}
@@ -213,7 +184,7 @@ export default function Header() {
       <div className={`md:hidden fixed top-[90px] left-0 w-full bg-transparent z-40 transition-all duration-300 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <div className="container max-w-[1340px] mx-auto px-4">
           <div className="flex items-center min-h-[44px]">
-            <span className="text-[14px] font-light text-white whitespace-nowrap">Гарантийный фонд: <span className="ml-1"> 169 716,76 сумов</span></span>
+            <span className="text-[14px] text-white whitespace-nowrap font-normal">Гарантийный фонд: <span className="ml-1"> 169 716,76 сумов</span></span>
           </div>
         </div>
       </div>
@@ -225,16 +196,18 @@ export default function Header() {
             
             {/* Mobile Menu Stocks Section */}
             <div className="border-b border-[#D8D8D8]">
-              <div id="mobile-ticker" className="overflow-hidden flex items-center min-h-[33px] relative">
-                <div className="flex animate-marquee">
-                  {[...stockData, ...stockData, ...stockData].map((item, index) => (
-                    <div data-ticker-item className="flex text-xs flex-shrink-0 items-center px-2 text-black" key={index}>
-                      <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
-                      <span className="mr-[4px] font-normal whitespace-nowrap">{item.value}</span>
-                      <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
-                      <span className="text-[#00B81D] whitespace-nowrap">{item.change}</span>
-                    </div>
-                  ))}
+              <div className="flex items-center min-h-[33px] relative">
+                <div className="overflow-hidden flex-1 mx-[5px]">
+                  <div className="flex animate-marquee">
+                    {[...stockData, ...stockData, ...stockData].map((item, index) => (
+                      <div className="flex text-xs flex-shrink-0 items-center px-2 text-black" key={index}>
+                        <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
+                        <span className="mr-[4px] font-normal whitespace-nowrap">{item.value}</span>
+                        <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
+                        <span className="text-[#00B81D] whitespace-nowrap">{item.change}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -246,7 +219,7 @@ export default function Header() {
                 <div className="flex items-center gap-9">
                   <div className="flex items-center gap-2 text-sm">
                     <Image src="/media/lang-arrow-black.svg" alt="language arrow right" width={6} height={6} />
-                    <span className="text-black">RU</span>
+                    <span className="text-black font-normal">RU</span>
                   </div>
                   <button 
                     onClick={closeMobileMenu}
