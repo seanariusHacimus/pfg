@@ -162,7 +162,7 @@ export default function Header() {
               <ul className="flex gap-8 text-sm items-center">
                 {navigationItems.map((item) => (
                   <li key={item.name}>
-                    <a href={item.href} className="hover:opacity-80 font-regular">{item.name}</a>
+                    <a href={item.href} className="hover:opacity-80 font-normal">{item.name}</a>
                   </li>
                 ))}
               </ul>
