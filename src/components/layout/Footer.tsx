@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { ChevronDown, DollarSign, Euro, RussianRuble } from 'lucide-react';
+import { useCurrencyRates } from '../../hooks/useCurrencyRates';
 
 // Static data for accordion sections
 const footerSections = [
@@ -33,11 +34,7 @@ const footerSections = [
   }
 ];
 
-const currencyData = [
-  { currency: 'доллара', icon: 'dollar', value: '13 003.95', change: '+14.88' },
-  { currency: 'евро', icon: 'euro', value: '13 003.95', change: '+14.88' }, 
-  { currency: 'рубля', icon: 'rubl', value: '13 003.95', change: '+14.88' }
-];
+
 
 const getCurrencyIcon = (iconType: string) => {
   const iconProps = { size: 14, className: "text-[#CACACA]" };
@@ -64,6 +61,7 @@ const socialIcons = [
 export default function Footer() {
   const [openSections, setOpenSections] = useState<string[]>([]);
   const [currencyOpen, setCurrencyOpen] = useState(false);
+  const { currencyRates, loading } = useCurrencyRates();
 
   const toggleSection = (sectionId: string) => {
     setOpenSections(prev => 
@@ -133,13 +131,19 @@ export default function Footer() {
               {currencyOpen && (
                 <div className="pt-2 pb-3">
                   <ul className="space-y-2">
-                    {currencyData.map(({currency, icon, value, change}) => (
-                      <li key={currency} className="flex text-[14px] items-center">
-                        <span className="mr-2">{getCurrencyIcon(icon)}</span>
-                        <span className="text-black">{value}</span>
-                        <span className="ml-2 text-[#CACACA]">{change}</span>
+                    {loading ? (
+                      <li className="flex text-[14px] items-center">
+                        <span className="text-[#CACACA]">Загрузка курсов...</span>
                       </li>
-                    ))}
+                    ) : (
+                      currencyRates.map(({currency, icon, value, change}) => (
+                        <li key={currency} className="flex text-[14px] items-center">
+                          <span className="mr-2">{getCurrencyIcon(icon)}</span>
+                          <span className="text-black">{value}</span>
+                          <span className="ml-2 text-[#CACACA]">{change}</span>
+                        </li>
+                      ))
+                    )}
                   </ul>
                 </div>
               )}
@@ -215,13 +219,19 @@ export default function Footer() {
                 <div className="w-full md:w-1/4">
                   <h4 className="text-[#2450C4] pb-3.5">Курс валют:</h4>
                   <ul className="flex flex-col gap-2">
-                    {currencyData.map(({currency, icon, value, change}) => (
-                      <li key={currency} className="flex text-xs items-center">
-                        <span className="mr-1.5">{getCurrencyIcon(icon)}</span>
-                        <span>{value}</span>
-                        <span className="ml-1.5 text-[#CACACA]">{change}</span>
+                    {loading ? (
+                      <li className="flex text-xs items-center">
+                        <span className="text-[#CACACA]">Загрузка курсов...</span>
                       </li>
-                    ))}
+                    ) : (
+                      currencyRates.map(({currency, icon, value, change}) => (
+                        <li key={currency} className="flex text-xs items-center">
+                          <span className="mr-1.5">{getCurrencyIcon(icon)}</span>
+                          <span>{value}</span>
+                          <span className="ml-1.5 text-[#CACACA]">{change}</span>
+                        </li>
+                      ))
+                    )}
                   </ul>
                 </div>
               </div>

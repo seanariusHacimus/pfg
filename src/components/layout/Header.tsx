@@ -3,15 +3,10 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { DollarSign, Euro, RussianRuble } from 'lucide-react';
+import { useCurrencyRates } from '../../hooks/useCurrencyRates';
+import { useStockQuotes } from '../../hooks/useStockQuotes';
 
-// Static data moved into the component file
-const currencyData = [
-  { currency: 'доллара', icon: 'dollar', value: '13 003.95', change: '+14.88' },
-  { currency: 'евро', icon: 'euro', value: '13 003.95', change: '+14.88' }, 
-  { currency: 'рубля', icon: 'rubl', value: '13 003.95', change: '+14.88' }
-];
 
-const stockData = Array(5).fill({ name: 'OZPH', value: '13 003.95', change: '+14.88' });
 
 const navigationItems = [
   { name: 'Сделка', href: '#' },
@@ -39,6 +34,8 @@ const getCurrencyIcon = (iconType: string) => {
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { currencyRates, loading: currencyLoading } = useCurrencyRates();
+  const { stockQuotes, loading: stockLoading } = useStockQuotes();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,14 +76,20 @@ export default function Header() {
             <div className="flex items-center relative flex-1 md:w-[60%] after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8] after:z-10">
               <div className="overflow-hidden w-full mx-[5px]">
                 <div className="flex animate-marquee">
-                  {[...stockData, ...stockData, ...stockData].map((item, index) => (
-                    <div className="flex text-xs flex-shrink-0 items-center px-2" key={index}>
-                      <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
-                      <span className="mr-[4px] font-normal whitespace-nowrap">{item.value}</span>
-                      <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
-                      <span className="text-[#00B81D] whitespace-nowrap font-normal">{item.change}</span>
+                  {stockLoading ? (
+                    <div className="flex text-xs flex-shrink-0 items-center px-2">
+                      <span className="text-[#B2B2B2] whitespace-nowrap font-normal">Загрузка акций...</span>
                     </div>
-                  ))}
+                  ) : (
+                    [...stockQuotes, ...stockQuotes, ...stockQuotes].map((item, index) => (
+                      <div className="flex text-xs flex-shrink-0 items-center px-2" key={`${item.symbol}-${index}`}>
+                        <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
+                        <span className="mr-[4px] font-normal whitespace-nowrap">{item.price}</span>
+                        <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
+                        <span className="text-[#00B81D] whitespace-nowrap font-normal">{item.change}</span>
+                      </div>
+                    ))
+                  )}
                 </div>
               </div>
             </div>
@@ -94,13 +97,19 @@ export default function Header() {
             <div className="relative hidden md:flex items-center min-h-[44px] flex-1">
               <div className="overflow-hidden w-full mx-[5px] h-[44px] flex items-center">
                 <div className="flex animate-marquee-slow">
-                  {[...currencyData, ...currencyData, ...currencyData].map(({currency, icon, value, change}, index) => (
-                    <div className="flex text-xs flex-shrink-0 items-center px-1" key={`${currency}-${index}`}>
-                      <span className='mr-[1px]'>{getCurrencyIcon(icon)}</span>
-                      <span className='mr-[2px] whitespace-nowrap font-normal'>{value}</span>
-                      <span className="text-[#B2B2B2] whitespace-nowrap font-normal">{change}</span>
+                  {currencyLoading ? (
+                    <div className="flex text-xs flex-shrink-0 items-center px-1">
+                      <span className="text-[#B2B2B2] whitespace-nowrap font-normal">Загрузка курсов...</span>
                     </div>
-                  ))}
+                  ) : (
+                    [...currencyRates, ...currencyRates, ...currencyRates].map(({currency, icon, value, change}, index) => (
+                      <div className="flex text-xs flex-shrink-0 items-center px-1" key={`${currency}-${index}`}>
+                        <span className='mr-[1px]'>{getCurrencyIcon(icon)}</span>
+                        <span className='mr-[2px] whitespace-nowrap font-normal'>{value}</span>
+                        <span className="text-[#B2B2B2] whitespace-nowrap font-normal">{change}</span>
+                      </div>
+                    ))
+                  )}
                 </div>
               </div>
             </div>
@@ -199,14 +208,20 @@ export default function Header() {
               <div className="flex items-center min-h-[33px] relative">
                 <div className="overflow-hidden flex-1 mx-[5px]">
                   <div className="flex animate-marquee">
-                    {[...stockData, ...stockData, ...stockData].map((item, index) => (
-                      <div className="flex text-xs flex-shrink-0 items-center px-2 text-black" key={index}>
-                        <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
-                        <span className="mr-[4px] font-normal whitespace-nowrap">{item.value}</span>
-                        <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
-                        <span className="text-[#00B81D] whitespace-nowrap">{item.change}</span>
+                    {stockLoading ? (
+                      <div className="flex text-xs flex-shrink-0 items-center px-2 text-black">
+                        <span className="text-[#B2B2B2] whitespace-nowrap font-normal">Загрузка акций...</span>
                       </div>
-                    ))}
+                    ) : (
+                      [...stockQuotes, ...stockQuotes, ...stockQuotes].map((item, index) => (
+                        <div className="flex text-xs flex-shrink-0 items-center px-2 text-black" key={`${item.symbol}-${index}`}>
+                          <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
+                          <span className="mr-[4px] font-normal whitespace-nowrap">{item.price}</span>
+                          <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
+                          <span className="text-[#00B81D] whitespace-nowrap">{item.change}</span>
+                        </div>
+                      ))
+                    )}
                   </div>
                 </div>
               </div>
