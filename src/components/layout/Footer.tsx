@@ -137,11 +137,11 @@ export default function Footer() {
                       </li>
                     ) : (
                       currencyRates.map(({currency, icon, value, change}) => (
-                        <li key={currency} className="flex text-[14px] items-center">
-                          <span className="mr-2">{getCurrencyIcon(icon)}</span>
-                          <span className="text-black">{value}</span>
-                          <span className="ml-2 text-[#CACACA]">{change}</span>
-                        </li>
+                      <li key={currency} className="flex text-[14px] items-center">
+                        <span className="mr-2">{getCurrencyIcon(icon)}</span>
+                        <span className="text-black">{value}</span>
+                        <span className="ml-2 text-[#CACACA]">{change}</span>
+                      </li>
                       ))
                     )}
                   </ul>
@@ -156,15 +156,15 @@ export default function Footer() {
             <div className="space-y-5">
               <div>
                 <p className="text-[29px] font-medium text-black leading-[33px]">+998 55 515-20-00</p>
-                <p className="text-[29px] text-black leading-[33px]">hello@pfggroup.uz</p>
+                <p className="text-[29px] text-black leading-[33px]">Info@pfg.uz</p>
               </div>
               <div>
                 <p className="text-[14px] text-[#2450C4] font-medium">Адрес</p>
-                <p className="text-[14px] text-black">Улица Амира Тимура, 107B</p>
+                <p className="text-[14px] text-black">Проспект Амира Тимура 107B</p>
               </div>
               <div>
                 <p className="text-[14px] text-[#2450C4] font-medium">Часы работы</p>
-                <p className="text-[14px] text-black">Каждый день с 8:00 до 19:00</p>
+                <p className="text-[14px] text-black">С 9:00 до 18:00</p>
               </div>
             </div>
           </div>
@@ -225,11 +225,11 @@ export default function Footer() {
                       </li>
                     ) : (
                       currencyRates.map(({currency, icon, value, change}) => (
-                        <li key={currency} className="flex text-xs items-center">
-                          <span className="mr-1.5">{getCurrencyIcon(icon)}</span>
-                          <span>{value}</span>
-                          <span className="ml-1.5 text-[#CACACA]">{change}</span>
-                        </li>
+                      <li key={currency} className="flex text-xs items-center">
+                        <span className="mr-1.5">{getCurrencyIcon(icon)}</span>
+                        <span>{value}</span>
+                        <span className="ml-1.5 text-[#CACACA]">{change}</span>
+                      </li>
                       ))
                     )}
                   </ul>
@@ -240,16 +240,16 @@ export default function Footer() {
               <div className="flex flex-col md:flex-row w-full md:w-1/2">
                 <div className="w-1/3">
                   <h4 className="text-xs text-[#2450C4] leading-4 pb-0.5">Адрес</h4>
-                  <p className="text-xs leading-4">Улица Амира Тимура, 107B</p>
+                  <p className="text-xs leading-4">Проспект Амира Тимура 107B</p>
                 </div>
                 <div className="w-1/3">
                   <h4 className="text-xs text-[#2450C4] leading-4 pb-0.5">Часы работы</h4>
-                  <p className="text-xs leading-4">Каждый день с 8:00 до 19:00</p>
+                                      <p className="text-xs leading-4">С 9:00 до 18:00</p>
                 </div>
                 <div className="w-1/3">
                   <h4 className="text-xs text-[#2450C4] leading-4 pb-0.5">Контакты</h4>
                   <p className="text-xs leading-4">+998 55 515-20-00</p>
-                  <p className="text-xs leading-4">hello@pfggroup.uz</p>
+                                      <p className="text-xs leading-4">Info@pfg.uz</p>
                 </div>
               </div>
               <div className="w-full md:w-1/2">

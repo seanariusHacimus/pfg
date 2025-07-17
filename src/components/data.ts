@@ -2,9 +2,9 @@
 
 // Hero section data
 export const heroStats = [
-  { number: '2000', description: 'успешных сделок' },
+  { number: '10000+', description: 'успешных сделок' },
   { number: '9 лет', description: 'в рынке финансов' },
-  { number: '250', description: 'клиентов' }
+  { number: '1000+', description: 'клиентов' }
 ];
 
 // Services data

@@ -64,24 +64,24 @@ export default function Home() {
         <div className="flex whitespace-nowrap animate-marquee-partners items-center gap-[54px]">
           {/* First set of logos */}
           {partnersLogos.map((logo, index) => (
-            <div key={`first-${index}`} className="flex-shrink-0">
+            <div key={`first-${index}`} className="flex-shrink-0 w-[80px] sm:w-[100px] md:w-[120px] h-[22px] sm:h-[27px] md:h-12 flex items-center justify-center">
               <Image 
-                className="h-[22px] sm:h-[27px] md:h-12 w-auto object-contain" 
+                className="max-h-full max-w-full object-contain" 
                 src={`/media/${logo}`} 
                 alt={`Partner logo ${index + 1}`} 
-                width={100} 
+                width={120} 
                 height={48} 
               />
             </div>
           ))}
           {/* Second set of logos for seamless loop */}
           {partnersLogos.map((logo, index) => (
-            <div key={`second-${index}`} className="flex-shrink-0">
+            <div key={`second-${index}`} className="flex-shrink-0 w-[80px] sm:w-[100px] md:w-[120px] h-[22px] sm:h-[27px] md:h-12 flex items-center justify-center">
               <Image 
-                className="h-[22px] sm:h-[27px] md:h-12 w-auto object-contain" 
+                className="max-h-full max-w-full object-contain" 
                 src={`/media/${logo}`} 
                 alt={`Partner logo ${index + 1}`} 
-                width={100} 
+                width={120} 
                 height={48} 
               />
             </div>

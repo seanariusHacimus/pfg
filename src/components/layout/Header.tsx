@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { DollarSign, Euro, RussianRuble } from 'lucide-react';
 import { useCurrencyRates } from '../../hooks/useCurrencyRates';
 import { useStockQuotes } from '../../hooks/useStockQuotes';
+import { useGuaranteeFund } from '../../hooks/useGuaranteeFund';
 
 
 
@@ -36,6 +37,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { currencyRates, loading: currencyLoading } = useCurrencyRates();
   const { stockQuotes, loading: stockLoading } = useStockQuotes();
+  const { guaranteeFund, loading: guaranteeFundLoading } = useGuaranteeFund();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +72,7 @@ export default function Header() {
           <div className="container max-w-[1340px] flex md:min-h-[44px] min-h-[33px] mx-auto overflow-hidden">
 
             <div className="hidden min-w-[225px] md:flex items-center justify-center overflow-hidden relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8]">
-              <span className="text-xs whitespace-nowrap font-normal">Гарантийный фонд: <span className="ml-1 text-xs"> 169 716,76 сумов</span></span>
+              <span className="text-xs whitespace-nowrap font-normal">Гарантийный фонд: <span className="ml-1 text-xs">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
             </div>
 
             <div className="flex items-center relative flex-1 md:w-[60%] after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8] after:z-10">
@@ -83,11 +85,11 @@ export default function Header() {
                   ) : (
                     [...stockQuotes, ...stockQuotes, ...stockQuotes].map((item, index) => (
                       <div className="flex text-xs flex-shrink-0 items-center px-2" key={`${item.symbol}-${index}`}>
-                        <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
+                      <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
                         <span className="mr-[4px] font-normal whitespace-nowrap">{item.price}</span>
-                        <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
-                        <span className="text-[#00B81D] whitespace-nowrap font-normal">{item.change}</span>
-                      </div>
+                      <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
+                      <span className="text-[#00B81D] whitespace-nowrap font-normal">{item.change}</span>
+                    </div>
                     ))
                   )}
                 </div>
@@ -103,11 +105,11 @@ export default function Header() {
                     </div>
                   ) : (
                     [...currencyRates, ...currencyRates, ...currencyRates].map(({currency, icon, value, change}, index) => (
-                      <div className="flex text-xs flex-shrink-0 items-center px-1" key={`${currency}-${index}`}>
-                        <span className='mr-[1px]'>{getCurrencyIcon(icon)}</span>
-                        <span className='mr-[2px] whitespace-nowrap font-normal'>{value}</span>
-                        <span className="text-[#B2B2B2] whitespace-nowrap font-normal">{change}</span>
-                      </div>
+                    <div className="flex text-xs flex-shrink-0 items-center px-1" key={`${currency}-${index}`}>
+                      <span className='mr-[1px]'>{getCurrencyIcon(icon)}</span>
+                      <span className='mr-[2px] whitespace-nowrap font-normal'>{value}</span>
+                      <span className="text-[#B2B2B2] whitespace-nowrap font-normal">{change}</span>
+                    </div>
                     ))
                   )}
                 </div>
@@ -145,7 +147,7 @@ export default function Header() {
                 <Image src="/media/lang-arrow.svg" alt="language arrow right" width={6} height={6} />
                 <span className='font-normal'>RUSSIAN</span>
               </div>
-              <a href="tel:+998712001234" className="hover:opacity-80 text-2xl leading-6">+998 71 200 12 34</a>
+              <a href="tel:+99855515200" className="hover:opacity-80 text-2xl leading-6">+998 55 515-20-00</a>
             </div>
           </div>
 
@@ -193,7 +195,7 @@ export default function Header() {
       <div className={`md:hidden fixed top-[90px] left-0 w-full bg-transparent z-40 transition-all duration-300 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <div className="container max-w-[1340px] mx-auto px-4">
           <div className="flex items-center min-h-[44px]">
-            <span className="text-[14px] text-white whitespace-nowrap font-normal">Гарантийный фонд: <span className="ml-1"> 169 716,76 сумов</span></span>
+            <span className="text-[14px] text-white whitespace-nowrap font-normal">Гарантийный фонд: <span className="ml-1">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
           </div>
         </div>
       </div>
@@ -215,11 +217,11 @@ export default function Header() {
                     ) : (
                       [...stockQuotes, ...stockQuotes, ...stockQuotes].map((item, index) => (
                         <div className="flex text-xs flex-shrink-0 items-center px-2 text-black" key={`${item.symbol}-${index}`}>
-                          <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
+                        <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
                           <span className="mr-[4px] font-normal whitespace-nowrap">{item.price}</span>
-                          <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
-                          <span className="text-[#00B81D] whitespace-nowrap">{item.change}</span>
-                        </div>
+                        <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
+                        <span className="text-[#00B81D] whitespace-nowrap">{item.change}</span>
+                      </div>
                       ))
                     )}
                   </div>
@@ -273,7 +275,7 @@ export default function Header() {
                 <div>
                   <p className="text-[16px] text-[#1D419E]">Контакты</p>
                   <a href="tel:+99855515200" className="block text-[30px] text-black">+998 55 515-20-00</a>
-                  <a href="mailto:hello@pfgroup.uz" className="block text-[30px] text-black">hello@pfgroup.uz</a>
+                  <a href="mailto:Info@pfg.uz" className="block text-[30px] text-black">Info@pfg.uz</a>
                 </div>
               </div>
 
