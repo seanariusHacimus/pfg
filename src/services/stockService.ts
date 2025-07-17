@@ -17,11 +17,6 @@ export interface UZSEApiResponse {
   open?: number;
 }
 
-const STOCK_MAPPING = {
-  UZAUTO: { name: 'UZAUTO' },
-  UZTELECOM: { name: 'UZTELECOM' }
-};
-
 export async function fetchStockQuotes(): Promise<StockQuote[]> {
   try {
     // For now, return fallback data since UZSE API is not accessible
@@ -52,26 +47,23 @@ export async function fetchStockQuotes(): Promise<StockQuote[]> {
     const quotes: StockQuote[] = [];
     
     data.forEach(stockData => {
-      const { name } = STOCK_MAPPING[stockData.symbol as keyof typeof STOCK_MAPPING] || { name: stockData.symbol };
-      
+      // const { name } = STOCK_MAPPING[stockData.symbol as keyof typeof STOCK_MAPPING] || { name: stockData.symbol };
+      const name = stockData.symbol;
       // Format the price value
       const formattedPrice = Number(stockData.price).toLocaleString('ru-RU', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       });
-      
       // Format the change value
       const changeValue = Number(stockData.change);
       const formattedChange = changeValue >= 0 
         ? `+${changeValue.toFixed(2)}`
         : `${changeValue.toFixed(2)}`;
-      
       // Format the change percent
       const changePercentValue = Number(stockData.changePercent);
       const formattedChangePercent = changePercentValue >= 0 
         ? `+${changePercentValue.toFixed(2)}%`
         : `${changePercentValue.toFixed(2)}%`;
-      
       quotes.push({
         symbol: stockData.symbol,
         name,
@@ -80,12 +72,10 @@ export async function fetchStockQuotes(): Promise<StockQuote[]> {
         changePercent: formattedChangePercent
       });
     });
-    
     return quotes;
     */
   } catch (error) {
     console.error('Error fetching stock quotes:', error);
-    
     // Return fallback data if API fails
     return [
       { symbol: 'UZAUTO', name: 'UZAUTO', price: '13 003.95', change: '+14.88', changePercent: '+0.12%' },
