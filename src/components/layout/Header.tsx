@@ -98,7 +98,7 @@ export default function Header() {
 
             <div className="relative hidden md:flex items-center min-h-[44px] flex-1">
               <div className="overflow-hidden w-full mx-[5px] h-[44px] flex items-center">
-                <div className="flex animate-marquee-slow">
+                <div className="flex">
                   {currencyLoading ? (
                     <div className="flex text-xs flex-shrink-0 items-center px-1">
                       <span className="text-[#B2B2B2] whitespace-nowrap font-normal">Загрузка курсов...</span>
