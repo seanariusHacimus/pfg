@@ -3,14 +3,6 @@ export interface GuaranteeFundData {
   lastUpdated: string;
 }
 
-interface MemberData {
-  mbr_no: string;
-  mbr_nm: string;
-  curr_iso_cd: string;
-  amount: string;
-  get_bas_dd: string;
-}
-
 export async function fetchGuaranteeFund(): Promise<GuaranteeFundData> {
   try {
     const response = await fetch('https://uzse.uz/cps.xml');
