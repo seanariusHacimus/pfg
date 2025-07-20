@@ -143,12 +143,12 @@ export const brokerData = [
 
 // Partner logos data
 export const partnersLogos = [
-  'partner-logo-1.svg',
-  'partner-logo-2.svg',
-  'partner-logo-3.svg',
-  'partner-logo-4.svg',
-  'partner-logo-5.svg',
-  'partner-logo-6.svg',
-  'partner-logo-7.svg',
-  'partner-logo-8.svg'
+  'Logo_partner_1.svg',
+  'Logo_partner_2.svg',
+  'Logo_partner_3.svg',
+  'Logo_partner_4.svg',
+  'Logo_partner_5.svg',
+  'Logo_partner_6.svg',
+  'Logo_partner_7.svg',
+  'Logo_partner_8.svg'
 ]; 
