@@ -23,13 +23,13 @@ const footerSections = [
     id: 'resources',
     title: 'Ресурсы',
     links: [
-      { name: 'uzse.uz', href: '#' },
-      { name: 'uzex.uz', href: '#' },
-      { name: 'uzrvb.uz', href: '#' },
-      { name: 'uzcsd.uz', href: '#' },
-      { name: 'kapitalbozori.uz', href: '#' },
-      { name: 'new.openinfo.uz', href: '#' },
-      { name: 'naii.uz', href: '#' }
+      { name: 'uzse.uz', href: 'https://uzse.uz' },
+      { name: 'uzex.uz', href: 'https://uzex.uz' },
+      { name: 'uzrvb.uz', href: 'https://uzrvb.uz' },
+      { name: 'uzcsd.uz', href: 'https://uzcsd.uz' },
+      { name: 'kapitalbozori.uz', href: 'https://kapitalbozori.uz' },
+      { name: 'new.openinfo.uz', href: 'https://new.openinfo.uz' },
+      { name: 'naii.uz', href: 'https://naii.uz' }
     ]
   }
 ];

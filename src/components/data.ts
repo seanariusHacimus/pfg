@@ -63,54 +63,39 @@ export const dealsData = [
 // Team data
 export const teamData = [
   {
-    name: 'Ойбек Батырович',
-    position: 'Директор и основатель',
-    imageUrl: '/media/profile.png'
-  },
-  {
-    name: 'Анна Сергеевна',
-    position: 'Финансовый директор',
+    name: 'Кадиров Ойбек',
+    position: 'Директор',
     imageUrl: '/media/profile_1.png'
   },
   {
-    name: 'Михаил Иванович',
-    position: 'Главный аналитик',
+    name: 'Юлдашев Улугбек',
+    position: 'Заместитель директора',
+    imageUrl: '/media/profile.png'
+  },
+  {
+    name: 'Косимов Умиджон',
+    position: 'Заместитель директора',
     imageUrl: '/media/profile_2.png'
   },
   {
-    name: 'Елена Владимировна',
-    position: 'Руководитель отдела',
+    name: 'Алибоев Абдулазиз',
+    position: 'Начальник отдела по работе с клиентами',
+    imageUrl: '/media/profile_6.jpg'
+  },
+  {
+    name: 'Кимсанбоев Самандархон',
+    position: 'Ведущий специалист',
+    imageUrl: '/media/profile_5.jpg'
+  },
+  {
+    name: 'Икромбоев Хусанбой',
+    position: 'Специалист',
     imageUrl: '/media/profile_3.png'
   },
   {
-    name: 'Дмитрий Александрович',
-    position: 'Старший брокер',
+    name: 'Тоиров Алишер',
+    position: 'Специалист',
     imageUrl: '/media/profile_4.png'
-  },
-  {
-    name: 'Светлана Николаевна',
-    position: 'Клиент-менеджер',
-    imageUrl: '/media/profile_2.png'
-  },
-  {
-    name: 'Алексей Петрович',
-    position: 'Юрист-консультант',
-    imageUrl: '/media/profile_3.png'
-  },
-  {
-    name: 'Мария Андреевна',
-    position: 'Инвест-консультант',
-    imageUrl: '/media/profile.png'
-  },
-  {
-    name: 'Владимир Сергеевич',
-    position: 'Аналитик рынка',
-    imageUrl: '/media/profile_2.png'
-  },
-  {
-    name: 'Ольга Викторовна',
-    position: 'Консультант',
-    imageUrl: '/media/profile.png'
   }
 ];
 
