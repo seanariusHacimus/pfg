@@ -1,6 +1,5 @@
  "use client"
 
-import Image from 'next/image';
 import React from 'react';
 
 // Import components
@@ -26,6 +25,7 @@ import {
   brokerData,
   partnersLogos 
 } from '@/components/data';
+import PartnersMarquee from '@/components/home/PartnersMarquee';
 
 export default function Home() {
   return (
@@ -39,7 +39,7 @@ export default function Home() {
             <div className="flex gap-8 md:gap-10 md:mr-19">
               {heroStats.map((stat, index) => (
                 <div key={index} className="flex flex-col">
-                  <span className="text-[32px] leading-[22px] tracking-[3%] md:text-[34px] md:leading-9 md:tracking-normal font-display font-normal pb-2 md:pb-0">{stat.number}</span>
+                  <span className="text-[24px] leading-[20px] tracking-[3%] md:text-[34px] md:leading-9 md:tracking-normal font-display font-normal pb-2 md:pb-0">{stat.number}</span>
                   <p className="text-[18px] leading-[17px] md:text-2xl md:leading-[26px] font-sans font-light tracking-[2%">{stat.description}</p>
                 </div>
               ))}
@@ -61,32 +61,7 @@ export default function Home() {
       </section>
 
       <section className="bg-white text-black overflow-hidden py-[34px] md:py-[70px]">
-        <div className="flex whitespace-nowrap animate-marquee-partners items-center gap-[54px]">
-          {/* First set of logos */}
-          {partnersLogos.map((logo, index) => (
-            <div key={`first-${index}`} className="flex-shrink-0 w-[80px] sm:w-[100px] md:w-[120px] h-[22px] sm:h-[27px] md:h-12 flex items-center justify-center">
-              <Image 
-                className="max-h-full max-w-full object-contain" 
-                src={`/media/${logo}`} 
-                alt={`Partner logo ${index + 1}`} 
-                width={120} 
-                height={48} 
-              />
-            </div>
-          ))}
-          {/* Second set of logos for seamless loop */}
-          {partnersLogos.map((logo, index) => (
-            <div key={`second-${index}`} className="flex-shrink-0 w-[80px] sm:w-[100px] md:w-[120px] h-[22px] sm:h-[27px] md:h-12 flex items-center justify-center">
-              <Image 
-                className="max-h-full max-w-full object-contain" 
-                src={`/media/${logo}`} 
-                alt={`Partner logo ${index + 1}`} 
-                width={120} 
-                height={48} 
-              />
-            </div>
-          ))}
-        </div>
+        <PartnersMarquee logos={partnersLogos} />
       </section>
 
       <section className="bg-[#F2F4F7] text-black px-5">

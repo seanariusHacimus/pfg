@@ -65,17 +65,17 @@ export const teamData = [
   {
     name: 'Кадиров Ойбек',
     position: 'Директор',
-    imageUrl: '/media/profile_1.png'
+    imageUrl: '/media/profile_1.jpg'
   },
   {
     name: 'Юлдашев Улугбек',
     position: 'Заместитель директора',
-    imageUrl: '/media/profile.png'
+    imageUrl: '/media/profile.jpg'
   },
   {
     name: 'Косимов Умиджон',
     position: 'Заместитель директора',
-    imageUrl: '/media/profile_2.png'
+    imageUrl: '/media/profile_2.jpg'
   },
   {
     name: 'Алибоев Абдулазиз',
@@ -90,12 +90,12 @@ export const teamData = [
   {
     name: 'Икромбоев Хусанбой',
     position: 'Специалист',
-    imageUrl: '/media/profile_3.png'
+    imageUrl: '/media/profile_3.jpg'
   },
   {
     name: 'Тоиров Алишер',
     position: 'Специалист',
-    imageUrl: '/media/profile_4.png'
+    imageUrl: '/media/profile_4.jpg'
   }
 ];
 
