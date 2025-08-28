@@ -61,14 +61,14 @@ export default function Header() {
   return (
     <>
       <header 
-        className={`w-full font-thin border-[#D8D8D8] border-b-[0.5px] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white border-b-white -translate-y-[0px] md:-translate-y-[45px] text-black' : 'bg-transparent translate-y-0 text-white'}`}
+        className={`w-full font-thin fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white -translate-y-[0px] md:-translate-y-[0px] text-black' : 'bg-transparent translate-y-0 text-white'}`}
         style={{
           boxShadow: isScrolled ? '0px 10px 50px 0px rgba(0, 0, 0, 0.25)' : 'none'
         }}
       >
         
-        {/* Top ticker section */}
-        <div className="border-[#D8D8D8] border-b-[0.5px]">
+        {/* Top ticker section - HIDDEN */}
+        <div className="border-[#D8D8D8] border-b-[0.5px] hidden">
           <div className="container max-w-[1340px] flex md:min-h-[44px] min-h-[33px] mx-auto overflow-hidden">
 
             <div className="hidden min-w-[225px] md:flex items-center justify-center overflow-hidden relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8]">
@@ -120,7 +120,8 @@ export default function Header() {
         </div>
 
         {/* Main header */}
-        <div className="container max-w-[1340px] m-auto flex items-center justify-between py-[18px] md:py-[0px] md:h-[75px] px-4 md:px-0">
+        <div className="container max-w-[1340px] m-auto">
+          <div className="flex items-center justify-between py-[18px] md:py-[0px] md:h-[75px] px-4 md:px-0">
           <div className="flex">
 
             <div className="max-w-[95px] md:max-w-[125px] md:pr-11">
@@ -187,12 +188,21 @@ export default function Header() {
             </button>
           </div>
 
-        </div>  
+          </div>
+          
+        </div>
+        
+        {/* Guarantee Fund under navigation - Desktop and Mobile - Full Width */}
+        <div className={`w-full md:border-b border-t md:border-t-0 border-[#D8D8D8] transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0 pointer-events-none' : 'h-auto py-3 opacity-100'}`}>
+          <div className="container max-w-[1340px] mx-auto px-4 md:px-0">
+            <span className="text-sm whitespace-nowrap font-normal text-white">Гарантийный фонд: <span className="ml-1">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
+          </div>
+        </div>
 
       </header>
 
-      {/* Mobile Guarantee Fund Section */}
-      <div className={`md:hidden fixed top-[90px] left-0 w-full bg-transparent z-40 transition-all duration-300 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      {/* Mobile Guarantee Fund Section - HIDDEN */}
+      <div className="hidden">
         <div className="container max-w-[1340px] mx-auto px-4">
           <div className="flex items-center min-h-[44px]">
             <span className="text-[14px] text-white whitespace-nowrap font-normal">Гарантийный фонд: <span className="ml-1">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
@@ -205,8 +215,8 @@ export default function Header() {
         <div className="fixed inset-0 bg-white z-[60] lg:hidden">
           <div className="h-full flex flex-col">
             
-            {/* Mobile Menu Stocks Section */}
-            <div className="border-b border-[#D8D8D8]">
+            {/* Mobile Menu Stocks Section - HIDDEN */}
+            <div className="border-b border-[#D8D8D8] hidden">
               <div className="flex items-center min-h-[33px] relative">
                 <div className="overflow-hidden flex-1 mx-[5px]">
                   <div className="flex animate-marquee">

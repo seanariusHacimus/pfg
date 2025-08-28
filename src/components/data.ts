@@ -34,29 +34,49 @@ export const whyUsData = [
 // Deals data
 export const dealsData = [
   {
-    title: 'Продажа компании в Хмельницкой области',
-    parties: [{ name: 'Roshen' }, { name: 'NCH Capital' }],
-    amount: '$125 000'
+    companyName: 'АО «Yog\'gar»',
+    date: '26.07.2021',
+    shareCount: '2 900 640',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '89,29%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '26 889 164 851,20 сум'
   },
   {
-    title: 'Приобретение IT-компании в Киеве',
-    parties: [{ name: 'Genesis' }, { name: 'Intellias' }],
-    amount: '$250 000'
+    companyName: 'ООО «TechnoServ»',
+    date: '15.08.2021',
+    shareCount: '1 500 000',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '75,50%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '15 250 000 000,00 сум'
   },
   {
-    title: 'Слияние логистических компаний',
-    parties: [{ name: 'Nova Poshta' }, { name: 'Meest Express' }],
-    amount: '$180 000'
+    companyName: 'АО «UzMetall Group»',
+    date: '03.09.2021',
+    shareCount: '3 200 450',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '92,15%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '45 680 750 200,50 сум'
   },
   {
-    title: 'Слияние логистических компаний',
-    parties: [{ name: 'Nova Poshta' }, { name: 'Meest Express' }],
-    amount: '$180 000'
+    companyName: 'ООО «Digital Solutions»',
+    date: '22.10.2021',
+    shareCount: '850 000',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '68,75%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '12 400 500 000,00 сум'
   },
   {
-    title: 'Слияние логистических компаний',
-    parties: [{ name: 'Nova Poshta' }, { name: 'Meest Express' }],
-    amount: '$180 000'
+    companyName: 'АО «Logistics Plus»',
+    date: '18.11.2021',
+    shareCount: '2 100 300',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '85,40%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '28 750 400 150,75 сум'
   }
 ];
 
@@ -79,7 +99,7 @@ export const teamData = [
   },
   {
     name: 'Алибоев Абдулазиз',
-    position: 'Начальник отдела по работе с клиентами',
+    position: 'Руководитель клиентского отдела',
     imageUrl: '/media/profile_6.jpg'
   },
   {

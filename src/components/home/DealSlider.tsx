@@ -3,14 +3,14 @@
 import { useState, useRef, useEffect } from 'react';
 import DealCard from './DealCard';
 
-interface DealParty {
-  name: string;
-}
-
 interface DealData {
-  title: string;
-  parties: DealParty[];
-  amount: string;
+  companyName: string;
+  date: string;
+  shareCount: string;
+  shareDescription: string;
+  percentage: string;
+  percentageDescription: string;
+  dealAmount: string;
 }
 
 interface DealSliderProps {
@@ -170,9 +170,13 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
           {dealsData.map((deal, index) => (
             <div key={index} className="flex-shrink-0 deal-item">
               <DealCard 
-                title={deal.title} 
-                parties={deal.parties} 
-                amount={deal.amount} 
+                companyName={deal.companyName}
+                date={deal.date}
+                shareCount={deal.shareCount}
+                shareDescription={deal.shareDescription}
+                percentage={deal.percentage}
+                percentageDescription={deal.percentageDescription}
+                dealAmount={deal.dealAmount}
               />
             </div>
           ))}

@@ -120,9 +120,13 @@ export default function Home() {
             {dealsData.map((deal, index) => (
               <DealCard 
                 key={index} 
-                title={deal.title} 
-                parties={deal.parties} 
-                amount={deal.amount} 
+                companyName={deal.companyName}
+                date={deal.date}
+                shareCount={deal.shareCount}
+                shareDescription={deal.shareDescription}
+                percentage={deal.percentage}
+                percentageDescription={deal.percentageDescription}
+                dealAmount={deal.dealAmount}
               />
             ))}
           </div>
