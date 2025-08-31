@@ -18,7 +18,7 @@ const navigationItems = [
 ];
 
 const getCurrencyIcon = (iconType: string) => {
-  const iconProps = { size: 12, className: "text-white" };
+  const iconProps = { size: 12, className: "text-black" };
   
   switch (iconType) {
     case 'dollar':
@@ -32,7 +32,7 @@ const getCurrencyIcon = (iconType: string) => {
   }
 };
 
-export default function Header() {
+export default function HeaderWhite() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { currencyRates, loading: currencyLoading } = useCurrencyRates();
@@ -61,9 +61,9 @@ export default function Header() {
   return (
     <>
       <header 
-        className={`w-full font-thin fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white -translate-y-[0px] md:-translate-y-[0px] text-black' : 'bg-transparent translate-y-0 text-white'}`}
+        className="w-full font-thin fixed top-0 left-0 z-50 bg-white text-black"
         style={{
-          boxShadow: isScrolled ? '0px 10px 50px 0px rgba(0, 0, 0, 0.25)' : 'none'
+          boxShadow: '0px 10px 50px 0px rgba(0, 0, 0, 0.25)'
         }}
       >
         
@@ -72,7 +72,7 @@ export default function Header() {
           <div className="container max-w-[1340px] flex md:min-h-[44px] min-h-[33px] mx-auto overflow-hidden">
 
             <div className="hidden min-w-[225px] md:flex items-center justify-center overflow-hidden relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8]">
-              <span className="text-xs whitespace-nowrap font-normal">Гарантийный фонд: <span className="ml-1 text-xs">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
+              <span className="text-xs whitespace-nowrap font-normal text-black">Гарантийный фонд: <span className="ml-1 text-xs">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
             </div>
 
             <div className="flex items-center relative flex-1 md:w-[60%] after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-[20px] after:bg-[#D8D8D8] after:z-10">
@@ -85,8 +85,8 @@ export default function Header() {
                   ) : (
                     [...stockQuotes, ...stockQuotes, ...stockQuotes].map((item, index) => (
                       <div className="flex text-xs flex-shrink-0 items-center px-2" key={`${item.symbol}-${index}`}>
-                      <span className="mr-[3px] font-normal whitespace-nowrap">{item.name}</span>
-                        <span className="mr-[4px] font-normal whitespace-nowrap">{item.price}</span>
+                      <span className="mr-[3px] font-normal whitespace-nowrap text-black">{item.name}</span>
+                        <span className="mr-[4px] font-normal whitespace-nowrap text-black">{item.price}</span>
                       <Image src="/media/increase-top-arrow.svg" alt="Increase arrow" width={11} height={11} />
                       <span className="text-[#00B81D] whitespace-nowrap font-normal">{item.change}</span>
                     </div>
@@ -107,7 +107,7 @@ export default function Header() {
                     [...currencyRates, ...currencyRates, ...currencyRates].map(({currency, icon, value, change}, index) => (
                     <div className="flex text-xs flex-shrink-0 items-center px-1" key={`${currency}-${index}`}>
                       <span className='mr-[1px]'>{getCurrencyIcon(icon)}</span>
-                      <span className='mr-[2px] whitespace-nowrap font-normal'>{value}</span>
+                      <span className='mr-[2px] whitespace-nowrap font-normal text-black'>{value}</span>
                       <span className="text-[#B2B2B2] whitespace-nowrap font-normal">{change}</span>
                     </div>
                     ))
@@ -125,7 +125,7 @@ export default function Header() {
           <div className="flex">
 
             <div className="max-w-[95px] md:max-w-[125px] md:pr-11">
-              <Image src={isScrolled ? "/media/pfg-logo-footer.svg" : "/media/PFG Logo.svg"} alt="PFG Logo" width={95} height={26} />
+              <Image src="/media/pfg-logo-footer.svg" alt="PFG Logo" width={95} height={26} />
             </div>
 
             {/* Desktop Navigation */}
@@ -133,7 +133,7 @@ export default function Header() {
               <ul className="flex gap-8 text-sm items-center">
                 {navigationItems.map((item) => (
                   <li key={item.name}>
-                    <a href={item.href} className="hover:opacity-80 font-normal">{item.name}</a>
+                    <a href={item.href} className="hover:opacity-80 font-normal text-black">{item.name}</a>
                   </li>
                 ))}
               </ul>
@@ -145,10 +145,10 @@ export default function Header() {
           <div className="hidden md:flex items-center">
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-2 text-sm">
-                <Image src="/media/lang-arrow.svg" alt="language arrow right" width={6} height={6} />
-                <span className='font-normal'>RUSSIAN</span>
+                <Image src="/media/lang-arrow-black.svg" alt="language arrow right" width={6} height={6} />
+                <span className='font-normal text-black'>RUSSIAN</span>
               </div>
-              <a href="tel:+99855515200" className="hover:opacity-80 text-2xl leading-6">+998 55 515-20-00</a>
+              <a href="tel:+99855515200" className="hover:opacity-80 text-2xl leading-6 text-black">+998 55 515-20-00</a>
             </div>
           </div>
 
@@ -157,19 +157,19 @@ export default function Header() {
             <div className="flex items-center gap-2 text-sm">
               <Image 
                 className='md:hidden' 
-                src={isScrolled ? "/media/lang-arrow-black.svg" : "/media/lang-arrow.svg"} 
+                src="/media/lang-arrow-black.svg" 
                 alt="language arrow right" 
                 width={6} 
                 height={6} 
               />
               <Image 
                 className='hidden md:block' 
-                src="/media/lang-arrow.svg" 
+                src="/media/lang-arrow-black.svg" 
                 alt="language arrow right" 
                 width={6} 
                 height={6} 
               />
-              <span className='font-normal'>RU</span>
+              <span className='font-normal text-black'>RU</span>
             </div>
             
             {/* Mobile Hamburger Menu */}
@@ -183,7 +183,7 @@ export default function Header() {
                 alt="Menu" 
                 width={32} 
                 height={12}
-                className={isScrolled ? 'brightness-0' : 'brightness-0 invert'}
+                className="brightness-0"
               />
             </button>
           </div>
@@ -195,7 +195,7 @@ export default function Header() {
         {/* Guarantee Fund under navigation - Mobile Only - Full Width */}
         <div className={`w-full md:hidden border-t border-[#D8D8D8] transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0 pointer-events-none' : 'h-auto py-3 opacity-100'}`}>
           <div className="container max-w-[1340px] mx-auto px-4">
-            <span className="text-sm whitespace-nowrap font-normal text-white">Гарантийный фонд: <span className="ml-1">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
+            <span className="text-sm whitespace-nowrap font-normal text-black">Гарантийный фонд: <span className="ml-1">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
           </div>
         </div>
 
@@ -205,7 +205,7 @@ export default function Header() {
       <div className="hidden">
         <div className="container max-w-[1340px] mx-auto px-4">
           <div className="flex items-center min-h-[44px]">
-            <span className="text-[14px] text-white whitespace-nowrap font-normal">Гарантийный фонд: <span className="ml-1">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
+            <span className="text-[14px] text-black whitespace-nowrap font-normal">Гарантийный фонд: <span className="ml-1">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
           </div>
         </div>
       </div>
@@ -295,4 +295,4 @@ export default function Header() {
       )}
     </>
   );
-} 
+}
