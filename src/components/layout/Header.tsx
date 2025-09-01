@@ -10,11 +10,11 @@ import { useGuaranteeFund } from '../../hooks/useGuaranteeFund';
 
 
 const navigationItems = [
-  { name: 'Сделки', href: '#' },
-  { name: 'Услуги', href: '#' },
-  { name: 'Новости', href: '#' },
-  { name: 'О нас', href: '#' },
-  { name: 'Брокерский счет', href: '#' }
+  { name: 'Сделки', href: '/coming-soon' },
+  { name: 'Услуги', href: '/coming-soon' },
+  { name: 'Новости', href: '/coming-soon' },
+  { name: 'О нас', href: '/coming-soon' },
+  { name: 'Брокерский счет', href: '/coming-soon' }
 ];
 
 const getCurrencyIcon = (iconType: string) => {
@@ -192,9 +192,9 @@ export default function Header() {
           
         </div>
         
-        {/* Guarantee Fund under navigation - Mobile Only - Full Width */}
-        <div className={`w-full md:hidden border-t border-[#D8D8D8] transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0 pointer-events-none' : 'h-auto py-3 opacity-100'}`}>
-          <div className="container max-w-[1340px] mx-auto px-4">
+        {/* Guarantee Fund under navigation - Full Width */}
+        <div className={`w-full border-t md:border-t-0 border-[#D8D8D8] transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0 pointer-events-none' : 'h-auto py-3 md:py-1 opacity-100'}`}>
+          <div className="container max-w-[1340px] mx-auto px-4 md:px-0">
             <span className="text-sm whitespace-nowrap font-normal text-white">Гарантийный фонд: <span className="ml-1">{guaranteeFundLoading ? 'Загрузка...' : guaranteeFund.totalAmount}</span></span>
           </div>
         </div>

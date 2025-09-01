@@ -12,7 +12,7 @@ export default function NewsItem({ title, category, date, image, isLarge = false
   if (isLarge) {
     return (
       <div className='flex pb-10 md:pb-0 md:flex-col md:gap-[10px] md:w-full'>
-        <Image className="mr-[25px] max-w-[140px] md:mr-6 md:max-w-[635px] md:w-full" src={image} alt="news image featured" width={226} height={100} />
+        <Image className="mr-[25px] max-w-[140px] md:mr-0 md:max-w-none md:w-full" src={image} alt="news image featured" width={226} height={100} />
         <div className='md:mt-[5px]'>
           <p className="text-[14px] flex items-center gap-[0px]">
             <span className="text-[#2450C4]">{category}</span>

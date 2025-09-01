@@ -1,18 +1,42 @@
 import { NextResponse } from 'next/server';
+import https from 'https';
 
 export async function GET() {
   try {
-    const response = await fetch('https://uzse.uz/cps.xml', {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-      }
+    // Use Node.js https module directly to handle SSL issues
+    const response = await new Promise<string>((resolve, reject) => {
+      const options = {
+        hostname: 'uzse.uz',
+        path: '/cps.xml',
+        method: 'GET',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        },
+        rejectUnauthorized: false // Bypass SSL certificate verification
+      };
+
+      const req = https.request(options, (res) => {
+        let data = '';
+        res.on('data', (chunk) => {
+          data += chunk;
+        });
+        res.on('end', () => {
+          if (res.statusCode && res.statusCode >= 200 && res.statusCode < 300) {
+            resolve(data);
+          } else {
+            reject(new Error(`HTTP error! status: ${res.statusCode}`));
+          }
+        });
+      });
+
+      req.on('error', (error) => {
+        reject(error);
+      });
+
+      req.end();
     });
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const xmlText = await response.text();
+
+    const xmlText = response;
     
     // Parse XML to extract amounts
     const amountRegex = /<amount>([\d,.-]+)<\/amount>/g;

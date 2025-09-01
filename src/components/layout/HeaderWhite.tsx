@@ -10,11 +10,11 @@ import { useGuaranteeFund } from '../../hooks/useGuaranteeFund';
 
 
 const navigationItems = [
-  { name: 'Сделки', href: '#' },
-  { name: 'Услуги', href: '#' },
-  { name: 'Новости', href: '#' },
-  { name: 'О нас', href: '#' },
-  { name: 'Брокерский счет', href: '#' }
+  { name: 'Сделки', href: '/coming-soon' },
+  { name: 'Услуги', href: '/coming-soon' },
+  { name: 'Новости', href: '/coming-soon' },
+  { name: 'О нас', href: '/coming-soon' },
+  { name: 'Брокерский счет', href: '/coming-soon' }
 ];
 
 const getCurrencyIcon = (iconType: string) => {
@@ -61,10 +61,7 @@ export default function HeaderWhite() {
   return (
     <>
       <header 
-        className="w-full font-thin fixed top-0 left-0 z-50 bg-white text-black"
-        style={{
-          boxShadow: '0px 10px 50px 0px rgba(0, 0, 0, 0.25)'
-        }}
+        className="w-full font-thin fixed top-0 left-0 z-50 bg-white text-black border-b border-[#D8D8D8]"
       >
         
         {/* Top ticker section - HIDDEN */}
