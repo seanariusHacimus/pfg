@@ -116,19 +116,25 @@ export default function Home() {
             <DealSlider dealsData={dealsData} />
           </div>
           {/* Desktop version */}
-          <div className="hidden md:flex gap-[10px]">
-            {dealsData.map((deal, index) => (
-              <DealCard 
-                key={index} 
-                companyName={deal.companyName}
-                date={deal.date}
-                shareCount={deal.shareCount}
-                shareDescription={deal.shareDescription}
-                percentage={deal.percentage}
-                percentageDescription={deal.percentageDescription}
-                dealAmount={deal.dealAmount}
-              />
-            ))}
+          <div className="hidden md:block">
+            {dealsData.length > 5 ? (
+              <DealSlider dealsData={dealsData} />
+            ) : (
+              <div className="flex gap-[10px]">
+                {dealsData.map((deal, index) => (
+                  <DealCard 
+                    key={index} 
+                    companyName={deal.companyName}
+                    date={deal.date}
+                    shareCount={deal.shareCount}
+                    shareDescription={deal.shareDescription}
+                    percentage={deal.percentage}
+                    percentageDescription={deal.percentageDescription}
+                    dealAmount={deal.dealAmount}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>

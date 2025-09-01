@@ -18,7 +18,7 @@ export default function DealCard({
   dealAmount 
 }: DealCardProps) {
   return (
-    <div className="max-w-[250px] w-full md:max-w-none relative flex flex-col bg-white border border-[#E8E8E8] box-border flex-1 md:min-w-0 min-w-[250px] min-h-[260px]">
+    <div className="w-[250px] relative flex flex-col bg-white border border-[#E8E8E8] box-border min-h-[260px]">
       {/* Company Name */}
       <h4 className="text-[16px] leading-[100%] font-medium text-[#2450C4] px-5 pt-[16px]">
         {companyName}

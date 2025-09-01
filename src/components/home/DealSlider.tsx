@@ -68,7 +68,7 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
       // Small delay to ensure DOM is fully rendered
       setTimeout(() => {
         const itemWidth = calculateItemWidth();
-        const itemsToScroll = window.innerWidth < 768 ? 1 : 2; // 1 item on mobile, 2 on desktop
+        const itemsToScroll = window.innerWidth < 768 ? 1 : 5; // 1 item on mobile, 5 on desktop
         const scrollAmount = itemWidth * itemsToScroll;
         
         const newScrollLeft = direction === 'left' 

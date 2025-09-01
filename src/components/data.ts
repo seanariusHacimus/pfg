@@ -34,7 +34,7 @@ export const whyUsData = [
 // Deals data
 export const dealsData = [
   {
-    companyName: 'АО «Yog\'gar»',
+    companyName: 'Акционерное общество «Yog\'gar»',
     date: '26.07.2021',
     shareCount: '2 900 640',
     shareDescription: 'количество ценных бумаг',
@@ -43,40 +43,148 @@ export const dealsData = [
     dealAmount: '26 889 164 851,20 сум'
   },
   {
-    companyName: 'ООО «TechnoServ»',
-    date: '15.08.2021',
-    shareCount: '1 500 000',
+    companyName: 'Акционерное общество «O\'zpartamponaj»',
+    date: '15.03.2022',
+    shareCount: '3 041 090',
     shareDescription: 'количество ценных бумаг',
-    percentage: '75,50%',
+    percentage: '36%',
     percentageDescription: 'от Уставного капитала',
-    dealAmount: '15 250 000 000,00 сум'
+    dealAmount: '10 240 657 698,70 сум'
   },
   {
-    companyName: 'АО «UzMetall Group»',
-    date: '03.09.2021',
-    shareCount: '3 200 450',
+    companyName: 'Акционерное общество «Urganch yog\'-moy»',
+    date: '29.03.2022',
+    shareCount: '18 645 786',
     shareDescription: 'количество ценных бумаг',
-    percentage: '92,15%',
+    percentage: '60,31%',
     percentageDescription: 'от Уставного капитала',
-    dealAmount: '45 680 750 200,50 сум'
+    dealAmount: '50 000 539 737,60 сум'
   },
   {
-    companyName: 'ООО «Digital Solutions»',
-    date: '22.10.2021',
-    shareCount: '850 000',
+    companyName: 'Акционерное общество «YANGIYO\'L YOG\'-MOY»',
+    date: '10.02.2023',
+    shareCount: '17 008 225',
     shareDescription: 'количество ценных бумаг',
-    percentage: '68,75%',
+    percentage: '56,32%',
     percentageDescription: 'от Уставного капитала',
-    dealAmount: '12 400 500 000,00 сум'
+    dealAmount: '40 954 785 306,50 сум'
   },
   {
-    companyName: 'АО «Logistics Plus»',
-    date: '18.11.2021',
-    shareCount: '2 100 300',
+    companyName: 'Акционерное общество «O\'RTA OSIYO TRANS»',
+    date: '2023',
+    shareCount: '371 964',
     shareDescription: 'количество ценных бумаг',
-    percentage: '85,40%',
+    percentage: '51%',
     percentageDescription: 'от Уставного капитала',
-    dealAmount: '28 750 400 150,75 сум'
+    dealAmount: '65 000 337 036,00 сум'
+  },
+  {
+    companyName: 'Акционерное общество «ORGRES»',
+    date: '04.12.2023',
+    shareCount: '205 600',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '30,84%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '6 719 972 264,00 сум'
+  },
+  {
+    companyName: 'Акционерное общество «Janubsanoatmontaj»',
+    date: '26.12.2023',
+    shareCount: '337 653',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '00,00%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '000 000 000 000,00 сум'
+  },
+  {
+    companyName: 'Акционерное общество «Buxoroneftgazparmalash»',
+    date: '22.01.2024',
+    shareCount: '2 332 008',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '51,27%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '39 970 920 281,04 сум'
+  },
+  {
+    companyName: 'Акционерное общество «O\'zparavtotrans»',
+    date: '08.05.2024',
+    shareCount: '152 166',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '38,33%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '12 955 003 913,46 сум'
+  },
+  {
+    companyName: 'Акционерное общество «Boshtransloyiha»',
+    date: '21.10.2024',
+    shareCount: '3 574 032',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '80,26%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '131 893 360 663,68 сум'
+  },
+  {
+    companyName: 'Акционерное общество «PORTLATISHSANOAT»',
+    date: '11.12.2024',
+    shareCount: '895 189',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '66,04%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '35 680 282 027,98 сум'
+  },
+  {
+    companyName: 'Акционерное общество «CS EXPRESS PAY»',
+    date: '13.06.2025',
+    shareCount: '133 467 870',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '63,08%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '1 361 372 274,00 сум'
+  },
+  {
+    companyName: 'Акционерное общество «CS EXPRESS PAY»',
+    date: '20.06.2025',
+    shareCount: '78 112 721',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '36,92%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '3 749 410 608,00 сум'
+  },
+  {
+    companyName: 'Акционерное общество «Ohangaronshifer»',
+    date: '10.07.2025',
+    shareCount: '132 918',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '53,97%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '21 600 562 663,92 сум'
+  },
+  {
+    companyName: 'Акционерное общество «Matbuot tarqatuvchi»',
+    date: '15.07.2025',
+    shareCount: '84 292',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '8,43%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '337 168 000,00 сум'
+  },
+  {
+    companyName: 'Акционерное общество «O\'zpartamponaj»',
+    date: '17.07.2025',
+    shareCount: '422 370',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '5%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '35 901 450,00 сум'
+  },
+  {
+    companyName: 'Акционерное общество «O\'zpartamponaj»',
+    date: '17.07.2025',
+    shareCount: '355 768',
+    shareDescription: 'количество ценных бумаг',
+    percentage: '4,21%',
+    percentageDescription: 'от Уставного капитала',
+    dealAmount: '30 240 280,00 сум'
   }
 ];
 
