@@ -11,8 +11,8 @@ interface NewsItemProps {
 export default function NewsItem({ title, category, date, image, isLarge = false }: NewsItemProps) {
   if (isLarge) {
     return (
-      <div className='flex pb-10 md:pb-0 md:flex-col md:gap-[10px] md:w-full'>
-        <Image className="mr-[25px] max-w-[140px] md:mr-0 md:max-w-none md:w-full" src={image} alt="news image featured" width={226} height={100} />
+      <div className='flex pb-10 md:pb-0 md:flex-col md:gap-[10px] md:w-full cursor-pointer hover:opacity-80 transition-opacity duration-200'>
+        <Image className="mr-[25px] w-[140px] h-[90px] md:mr-0 md:max-w-none md:w-full md:h-auto object-cover" src={image} alt="news image featured" width={226} height={100} />
         <div className='md:mt-[5px]'>
           <p className="text-[14px] flex items-center gap-[0px]">
             <span className="text-[#2450C4]">{category}</span>
@@ -26,8 +26,8 @@ export default function NewsItem({ title, category, date, image, isLarge = false
   }
 
   return (
-    <div className="flex pb-10">
-      <Image className="mr-[25px] max-w-[140px] md:max-w-[226px]" src={image} alt="" width={226} height={100} />
+    <div className="flex pb-10 cursor-pointer hover:opacity-80 transition-opacity duration-200">
+      <Image className="mr-[25px] w-[140px] h-[90px] md:max-w-[226px] md:h-auto object-cover" src={image} alt="" width={226} height={100} />
       <div className='md:mt-[5px]'>
         <p className="text-[14px] flex items-center gap-[0px]">
           <span className="text-[#2450C4]">{category}</span>

@@ -12,7 +12,7 @@ import { useGuaranteeFund } from '../../hooks/useGuaranteeFund';
 const navigationItems = [
   { name: 'Сделки', href: '/coming-soon' },
   { name: 'Услуги', href: '/coming-soon' },
-  { name: 'Новости', href: '/coming-soon' },
+  { name: 'Новости', href: '/news' },
   { name: 'О нас', href: '/coming-soon' },
   { name: 'Брокерский счет', href: '/coming-soon' }
 ];
