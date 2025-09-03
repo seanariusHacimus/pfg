@@ -31,6 +31,7 @@ export default function NewsPage() {
                   category={news.category}
                   date={news.date}
                   image={news.image}
+                  slug={news.slug}
                 />
               ))}
             </div>
@@ -48,6 +49,7 @@ export default function NewsPage() {
                   category={news.category}
                   date={news.date}
                   image={news.image}
+                  slug={news.slug}
                 />
               ))}
             </div>

@@ -151,6 +151,7 @@ export default function Home() {
                   category={news.category}
                   date={news.date}
                   image={news.image}
+                  slug={news.slug}
                 />
               ))}
             </div>
@@ -160,6 +161,7 @@ export default function Home() {
                 category={newsData.featuredNews.category}
                 date={newsData.featuredNews.date}
                 image={newsData.featuredNews.image}
+                slug={newsData.featuredNews.slug}
                 isLarge={true}
               />
             </div>

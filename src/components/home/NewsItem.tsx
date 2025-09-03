@@ -1,17 +1,19 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface NewsItemProps {
   title: string;
   category: string;
   date: string;
   image: string;
+  slug: string;
   isLarge?: boolean;
 }
 
-export default function NewsItem({ title, category, date, image, isLarge = false }: NewsItemProps) {
+export default function NewsItem({ title, category, date, image, slug, isLarge = false }: NewsItemProps) {
   if (isLarge) {
     return (
-      <div className='flex pb-10 md:pb-0 md:flex-col md:gap-[10px] md:w-full cursor-pointer hover:opacity-80 transition-opacity duration-200'>
+      <Link href={`/news/${slug}`} className='flex pb-10 md:pb-0 md:flex-col md:gap-[10px] md:w-full cursor-pointer hover:opacity-80 transition-opacity duration-200'>
         <Image className="mr-[25px] w-[140px] h-[90px] md:mr-0 md:max-w-none md:w-full md:h-auto object-cover" src={image} alt="news image featured" width={226} height={100} />
         <div className='md:mt-[5px]'>
           <p className="text-[14px] flex items-center gap-[0px]">
@@ -21,12 +23,11 @@ export default function NewsItem({ title, category, date, image, isLarge = false
           </p>
           <h2 className="text-[16px] pt-[8px] md:pt-0 md:text-2xl leading-[18px] md:leading-[26px] max-w-[360px] md:max-w-none font-sans font-light">{title}</h2>
         </div>
-      </div>
+      </Link>
     );
   }
-
   return (
-    <div className="flex pb-10 cursor-pointer hover:opacity-80 transition-opacity duration-200">
+    <Link href={`/news/${slug}`} className="flex pb-10 cursor-pointer hover:opacity-80 transition-opacity duration-200">
       <Image className="mr-[25px] w-[140px] h-[90px] md:max-w-[226px] md:h-auto object-cover" src={image} alt="" width={226} height={100} />
       <div className='md:mt-[5px]'>
         <p className="text-[14px] flex items-center gap-[0px]">
@@ -36,6 +37,6 @@ export default function NewsItem({ title, category, date, image, isLarge = false
         </p>
         <h3 className="text-[16px] pt-[8px] md:pt-0 md:text-2xl leading-[18px] md:leading-[26px] max-w-[360px] font-sans font-light">{title}</h3>
       </div>
-    </div>
+    </Link>
   );
 } 

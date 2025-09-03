@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { DollarSign, Euro, RussianRuble } from 'lucide-react';
 import { useCurrencyRates } from '../../hooks/useCurrencyRates';
 import { useStockQuotes } from '../../hooks/useStockQuotes';
@@ -125,7 +126,9 @@ export default function Header() {
           <div className="flex">
 
             <div className="max-w-[95px] md:max-w-[125px] md:pr-11">
-              <Image src={isScrolled ? "/media/pfg-logo-footer.svg" : "/media/PFG Logo.svg"} alt="PFG Logo" width={95} height={26} />
+              <Link href="/">
+                <Image src={isScrolled ? "/media/pfg-logo-footer.svg" : "/media/PFG Logo.svg"} alt="PFG Logo" width={95} height={26} />
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -242,7 +245,9 @@ export default function Header() {
             <div className="container max-w-[1340px] mx-auto flex-1 flex flex-col">
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between py-[18px] px-4 border-b border-gray-200">
-                <Image src="/media/pfg-logo-footer.svg" className='max-h-[26px]' alt="PFG Logo" width={95} height={26} />
+                <Link href="/">
+                  <Image src="/media/pfg-logo-footer.svg" className='max-h-[26px]' alt="PFG Logo" width={95} height={26} />
+                </Link>
                 <div className="flex items-center gap-9">
                   <div className="flex items-center gap-2 text-sm">
                     <Image src="/media/lang-arrow-black.svg" alt="language arrow right" width={6} height={6} />

@@ -227,96 +227,117 @@ export const teamData = [
   }
 ];
 
-// News data
+// News data - unified structure for consistency
 export const newsData = {
+  // Featured news for main page (large display)
+  featuredNews: {
+    title: 'В Узбекистане зарегистрировано свыше 16,6 тыс. предприятий с китайским капиталом',
+    category: 'Рынки',
+    date: '15 июля 2025',
+    image: '/media/new-4.png',
+    slug: 'uzbekistan-chinese-enterprises'
+  },
+  
+  // Small news for main page sidebar
   smallNews: [
     {
-      title: 'Фонд Nomad Capitalвложил $20 млн в логистику Узбекистана',
-      category: 'Рубрика',
-      date: '25 июня 2025',
-      image: '/media/new-1.png'
+      title: 'Рынок капитала Узбекистана: новые инструменты и рост интереса инвесторов',
+      category: 'Рынки',
+      date: '14 июля 2025',
+      image: '/media/new-1.png',
+      slug: 'uzbekistan-capital-market-conference'
     },
     {
-      title: 'Центробанк Узбекистана расширил валютный коридор',
-      category: 'Рубрика',
-      date: '24 января 2025',
-      image: '/media/new-2.png'
+      title: 'Сотрудники PFG прошли обучение по корпоративному управлению',
+      category: 'Новости',
+      date: '14 июля 2025',
+      image: '/media/new-2.png',
+      slug: 'pfg-corporate-governance-training'
     },
     {
-      title: 'Новый финтех-стартап KassaU получил лицензию на цифровой банк',
-      category: 'Рубрика',
-      date: '24 января 2025',
-      image: '/media/new-3.png'
+      title: 'Сотрудник PFG принял участие в оценке корпоративного управления (совместно с АБР)',
+      category: 'Новости',
+      date: '12 июня 2025',
+      image: '/media/new-3.png',
+      slug: 'pfg-corporate-governance-assessment'
     }
   ],
-  featuredNews: {
-    title: 'Акции UzMetall подорожали на 14% после объявления экспорта в Европу',
-    category: 'Рубрика',
-    date: '24 января 2025',
-    image: '/media/new-4.png'
-  },
+  
+  // Featured news grid for news page (top section)
   featuredNewsGrid: [
     {
-      title: 'Акции UzMetall подорожали на 14% после объявления экспорта в Европу',
-      category: 'Рубрика',
-      date: '24 января 2025',
-      image: '/media/new-4.png'
+      title: 'В Узбекистане зарегистрировано свыше 16,6 тыс. предприятий с китайским капиталом',
+      category: 'Рынки',
+      date: '15 июля 2025',
+      image: '/media/new-4.png',
+      slug: 'uzbekistan-chinese-enterprises'
     },
     {
+      title: 'Рынок капитала Узбекистана: новые инструменты и рост интереса инвесторов',
+      category: 'Рынки',
+      date: '14 июля 2025',
+      image: '/media/new-1.png',
+      slug: 'uzbekistan-capital-market-conference'
+    },
+    {
+      title: 'Сотрудники PFG прошли обучение по корпоративному управлению',
+      category: 'Новости',
+      date: '14 июля 2025',
+      image: '/media/new-2.png',
+      slug: 'pfg-corporate-governance-training'
+    },
+    {
+      title: 'Сотрудник PFG принял участие в оценке корпоративного управления (совместно с АБР)',
+      category: 'Новости',
+      date: '12 июня 2025',
+      image: '/media/new-3.png',
+      slug: 'pfg-corporate-governance-assessment'
+    }
+  ],
+  
+  // Regular news for news page (bottom section)
+  regularNews: [
+    {
       title: 'Московская биржа возобновляет утреннюю сессию с 27 января 2025 года',
-      category: 'Рубрика',
-      date: '24 января 2025',
-      image: '/media/new-1.png'
+      category: 'Биржи',
+      date: '27 января 2025',
+      image: '/media/new-1.png',
+      slug: 'moscow-exchange-morning-session'
     },
     {
       title: 'Центробанк Узбекистана расширил валютный коридор для национальной валюты',
-      category: 'Рубрика',
-      date: '24 января 2025',
-      image: '/media/new-2.png'
+      category: 'Регулирование',
+      date: '26 января 2025',
+      image: '/media/new-2.png',
+      slug: 'uzbekistan-currency-corridor'
     },
     {
       title: 'Новый финтех-стартап получил лицензию на цифровой банкинг в регионе',
-      category: 'Рубрика',
-      date: '24 января 2025',
-      image: '/media/new-3.png'
-    }
-  ],
-  regularNews: [
+      category: 'Финтех',
+      date: '25 января 2025',
+      image: '/media/new-3.png',
+      slug: 'fintech-digital-banking-license'
+    },
     {
       title: 'Фонд Nomad Capital вложил $20 млн в логистику Узбекистана',
-      category: 'Рубрика',
-      date: '25 июня 2025',
-      image: '/media/new-1.png'
-    },
-    {
-      title: 'Центробанк Узбекистана расширил валютный коридор',
-      category: 'Рубрика',
+      category: 'Инвестиции',
       date: '24 января 2025',
-      image: '/media/new-2.png'
+      image: '/media/new-1.png',
+      slug: 'nomad-capital-uzbekistan'
     },
     {
-      title: 'Новый финтех-стартап KassaU получил лицензию на цифровой банк',
-      category: 'Рубрика',
-      date: '24 января 2025',
-      image: '/media/new-3.png'
-    },
-    {
-      title: 'Московская биржа возобновляет утреннюю сессию с 27 января 2025 года',
-      category: 'Рубрика',
-      date: '24 января 2025',
-      image: '/media/new-4.png'
-    },
-    {
-      title: 'Центральный банк повысил ключевую ставку до 8.5% годовых',
-      category: 'Рубрика',
+      title: 'Банк России снизил ключевую ставку до 21% годовых',
+      category: 'Регулирование', 
       date: '23 января 2025',
-      image: '/media/new-1.png'
+      image: '/media/news-2.jpg',
+      slug: 'central-bank-rate-cut'
     },
     {
       title: 'Крупнейший IPO года: компания TechCorp выходит на биржу',
-      category: 'Рубрика',
+      category: 'IPO',
       date: '22 января 2025',
-      image: '/media/new-2.png'
+      image: '/media/new-2.png',
+      slug: 'techcorp-ipo'
     }
   ]
 };

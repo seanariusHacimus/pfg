@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { ChevronDown, DollarSign, Euro, RussianRuble } from 'lucide-react';
 import { useCurrencyRates } from '../../hooks/useCurrencyRates';
@@ -78,7 +79,9 @@ export default function Footer() {
         <div className="block md:hidden">
           {/* Logo */}
           <div className="max-w-[95px] w-full md:max-w-[120px] mb-5 m:mb-8">
-            <Image src="/media/pfg-logo-footer.svg" alt="PFG Logo" width={120} height={30} />
+            <Link href="/">
+              <Image src="/media/pfg-logo-footer.svg" alt="PFG Logo" width={120} height={30} />
+            </Link>
           </div>
 
           {/* Accordion Sections */}
@@ -201,7 +204,9 @@ export default function Footer() {
           <div className="container max-w-[1440px] m-auto">
             <div className="flex flex-col md:flex-row">
               <div className="w-full md:w-1/2">
-                <Image src="/media/pfg-logo-footer.svg" alt="PFG Logo" width={200} height={50} />
+                <Link href="/">
+                  <Image src="/media/pfg-logo-footer.svg" alt="PFG Logo" width={200} height={50} />
+                </Link>
               </div>
               <div className="flex flex-col md:flex-row w-full md:w-1/2">
                 {footerSections.map((section) => (
