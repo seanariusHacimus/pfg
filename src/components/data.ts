@@ -227,7 +227,7 @@ export const teamData = [
   }
 ];
 
-// News data - unified structure for consistency
+// News data - only user-provided articles
 export const newsData = {
   // Featured news for main page (large display)
   featuredNews: {
@@ -295,51 +295,8 @@ export const newsData = {
     }
   ],
   
-  // Regular news for news page (bottom section)
-  regularNews: [
-    {
-      title: 'Московская биржа возобновляет утреннюю сессию с 27 января 2025 года',
-      category: 'Биржи',
-      date: '27 января 2025',
-      image: '/media/new-1.png',
-      slug: 'moscow-exchange-morning-session'
-    },
-    {
-      title: 'Центробанк Узбекистана расширил валютный коридор для национальной валюты',
-      category: 'Регулирование',
-      date: '26 января 2025',
-      image: '/media/new-2.png',
-      slug: 'uzbekistan-currency-corridor'
-    },
-    {
-      title: 'Новый финтех-стартап получил лицензию на цифровой банкинг в регионе',
-      category: 'Финтех',
-      date: '25 января 2025',
-      image: '/media/new-3.png',
-      slug: 'fintech-digital-banking-license'
-    },
-    {
-      title: 'Фонд Nomad Capital вложил $20 млн в логистику Узбекистана',
-      category: 'Инвестиции',
-      date: '24 января 2025',
-      image: '/media/new-1.png',
-      slug: 'nomad-capital-uzbekistan'
-    },
-    {
-      title: 'Банк России снизил ключевую ставку до 21% годовых',
-      category: 'Регулирование', 
-      date: '23 января 2025',
-      image: '/media/news-2.jpg',
-      slug: 'central-bank-rate-cut'
-    },
-    {
-      title: 'Крупнейший IPO года: компания TechCorp выходит на биржу',
-      category: 'IPO',
-      date: '22 января 2025',
-      image: '/media/new-2.png',
-      slug: 'techcorp-ipo'
-    }
-  ]
+  // Regular news for news page (bottom section) - empty for now
+  regularNews: []
 };
 
 // Broker data

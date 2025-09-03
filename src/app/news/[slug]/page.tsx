@@ -8,6 +8,27 @@ import { newsData } from '../../../components/data';
 // This would normally come from a database or API
 const getArticleBySlug = (slug: string) => {
   const articles: { [key: string]: { title: string; category: string; date: string; image: string; content: string; slug?: string } } = {
+    'uzbekistan-chinese-enterprises': {
+      title: 'В Узбекистане зарегистрировано свыше 16,6 тыс. предприятий с китайским капиталом',
+      category: 'Рынки',
+      date: '15 июля 2025',
+      image: '/media/new-4.png',
+      slug: 'uzbekistan-chinese-enterprises',
+      content: `
+        <h3 style="color: #0A0A0A; font-size: 18px; font-weight: 500; margin: 20px 0 12px 0;">Рост китайских инвестиций в Узбекистане</h3>
+        <p>По данным Агентства по привлечению иностранных инвестиций при Президенте Республики Узбекистан, в стране зарегистрировано свыше 16,6 тысяч предприятий с китайским капиталом. Это свидетельствует о значительном росте экономического сотрудничества между двумя странами.</p>
+
+        <h3 style="color: #0A0A0A; font-size: 18px; font-weight: 500; margin: 20px 0 12px 0;">Основные сферы инвестирования</h3>
+        <p>Китайские инвестиции охватывают широкий спектр отраслей экономики Узбекистана, включая промышленность, сельское хозяйство, энергетику, транспорт и логистику. Особое внимание уделяется проектам в рамках инициативы "Один пояс, один путь".</p>
+
+        <h3 style="color: #0A0A0A; font-size: 18px; font-weight: 500; margin: 20px 0 12px 0;">Перспективы развития</h3>
+        <p>Эксперты отмечают, что данная тенденция способствует модернизации экономики Узбекистана, созданию новых рабочих мест и трансферу технологий. Правительство продолжает создавать благоприятные условия для привлечения иностранных инвестиций.</p>
+
+        <p style="margin-top: 30px; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #2450C4; font-style: italic;">
+          Источник: <a href="#" style="color: #2450C4; text-decoration: none;">Агентство по привлечению иностранных инвестиций при Президенте РУз</a>
+        </p>
+      `
+    },
     'uzbekistan-capital-market-conference': {
       title: 'Рынок капитала Узбекистана: новые инструменты и рост интереса инвесторов',
       category: 'Рынки',
@@ -41,7 +62,9 @@ const getArticleBySlug = (slug: string) => {
           <li>«Где работают деньги»</li>
         </ul>
         
-        <p style="margin-top: 20px;"><strong>Источник:</strong> <span style="color: #2450C4;">Kursiv Uzbekistan</span></p>
+        <p style="margin-top: 30px; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #2450C4; font-style: italic;">
+          Источник: <a href="#" style="color: #2450C4; text-decoration: none;">Kursiv Uzbekistan</a>
+        </p>
       `
     },
     'pfg-corporate-governance-training': {
@@ -65,6 +88,10 @@ const getArticleBySlug = (slug: string) => {
         <p>На следующем этапе сотрудники Компании уже подали документы для прохождения собеседования на получение сертификата корпоративного управляющего. Данный шаг открывает дополнительные профессиональные возможности — в частности, участие в Наблюдательных советах акционерных обществ с долей государства в качестве независимого члена.</p>
 
         <p>Полученные знания и навыки будут способствовать дальнейшему профессиональному росту команды и эффективной реализации задач в области корпоративного управления.</p>
+        
+        <p style="margin-top: 30px; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #2450C4; font-style: italic;">
+          Источник: <a href="#" style="color: #2450C4; text-decoration: none;">Premium Finance Group</a>
+        </p>
       `
     },
     'pfg-corporate-governance-assessment': {
@@ -93,6 +120,10 @@ const getArticleBySlug = (slug: string) => {
         </ul>
 
         <p>Полученные результаты были оформлены в аналитический отчёт и направлены АБР и соответствующим государственным органам. Участие нашего сотрудника в проекте стало важным вкладом в развитие культуры корпоративного управления и повышение прозрачности управления государственными активами в Узбекистане.</p>
+        
+        <p style="margin-top: 30px; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #2450C4; font-style: italic;">
+          Источник: <a href="#" style="color: #2450C4; text-decoration: none;">Premium Finance Group</a>
+        </p>
       `
     },
     'uzbekistan-chinese-investment': {
@@ -307,7 +338,7 @@ export default async function NewsArticle({ params }: PageProps) {
               {/* Right Column - Article Content */}
               <div className="w-[50%]">
                 <div 
-                  className="text-[18px] leading-[28px] font-light text-black text-left [&>p]:text-left [&>p]:mb-4"
+                  className="text-[18px] leading-[28px] font-light text-black text-left [&>p]:text-left [&>p]:mb-4 [&>ul]:list-disc [&>ul]:ml-5 [&>li]:mb-1"
                   dangerouslySetInnerHTML={{ __html: article.content }}
                 />
               </div>
@@ -328,16 +359,20 @@ export default async function NewsArticle({ params }: PageProps) {
                 </h3>
                 
                 <div className="flex flex-col gap-[25px]">
-                  {newsData.regularNews.slice(0, 3).map((news, index) => (
-                    <RegularNewsItem
-                      key={index}
-                      title={news.title}
-                      category={news.category}
-                      date={news.date}
-                      image={news.image}
-                      slug={news.slug}
-                    />
-                  ))}
+                  {/* Show other articles excluding the current one */}
+                  {[...newsData.smallNews, newsData.featuredNews]
+                    .filter(news => news.slug !== slug)
+                    .slice(0, 3)
+                    .map((news, index) => (
+                      <RegularNewsItem
+                        key={index}
+                        title={news.title}
+                        category={news.category}
+                        date={news.date}
+                        image={news.image}
+                        slug={news.slug}
+                      />
+                    ))}
                 </div>
               </div>
             </div>
