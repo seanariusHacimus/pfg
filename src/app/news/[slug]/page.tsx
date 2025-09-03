@@ -12,7 +12,7 @@ const getArticleBySlug = (slug: string) => {
       title: 'В Узбекистане зарегистрировано свыше 16,6 тыс. предприятий с китайским капиталом',
       category: 'Рынки',
       date: '15 июля 2025',
-      image: '/media/new-4.png',
+      image: '/media/4.jpg',
       slug: 'uzbekistan-chinese-enterprises',
       content: `
         <h3 style="color: #0A0A0A; font-size: 18px; font-weight: 500; margin: 20px 0 12px 0;">Рост китайских инвестиций в Узбекистане</h3>
@@ -33,7 +33,7 @@ const getArticleBySlug = (slug: string) => {
       title: 'Рынок капитала Узбекистана: новые инструменты и рост интереса инвесторов',
       category: 'Рынки',
       date: '14 июля 2025',
-      image: '/media/new-1.png',
+      image: '/media/1.jpg',
       slug: 'uzbekistan-capital-market-conference',
       content: `
         <h3 style="color: #0A0A0A; font-size: 18px; font-weight: 500; margin: 20px 0 12px 0;">Стратегическое окно возможностей</h3>
@@ -71,7 +71,7 @@ const getArticleBySlug = (slug: string) => {
       title: 'Сотрудники PFG прошли обучение по корпоративному управлению',
       category: 'Новости',
       date: '14 июля 2025',
-      image: '/media/new-2.png',
+      image: '/media/2.jpg',
       slug: 'pfg-corporate-governance-training',
       content: `
         <p>Сотрудники ООО "Premium Finance" успешно завершили обучение в Высшей школе бизнеса и предпринимательства при Кабинете Министров Республики Узбекистан по программе «Корпоратив бошқарувнинг замонавий амалиёти ва тамойиллари» / «Modern practice and principles of Corporate Governance».</p>
@@ -98,7 +98,7 @@ const getArticleBySlug = (slug: string) => {
       title: 'Сотрудник PFG принял участие в оценке корпоративного управления (совместно с АБР)',
       category: 'Новости',
       date: '12 июня 2025',
-      image: '/media/new-3.png',
+      image: '/media/3.jpg',
       slug: 'pfg-corporate-governance-assessment',
       content: `
         <p>В рамках оценки Умиджон Косимов проанализировал 9 акционерных обществ с участием государства, применяя обновлённую методологию оценки, разработанную с учётом международных стандартов и практик ОЭСР.</p>

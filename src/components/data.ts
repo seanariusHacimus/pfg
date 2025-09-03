@@ -234,7 +234,7 @@ export const newsData = {
     title: 'В Узбекистане зарегистрировано свыше 16,6 тыс. предприятий с китайским капиталом',
     category: 'Рынки',
     date: '15 июля 2025',
-    image: '/media/new-4.png',
+    image: '/media/4.jpg',
     slug: 'uzbekistan-chinese-enterprises'
   },
   
@@ -244,21 +244,21 @@ export const newsData = {
       title: 'Рынок капитала Узбекистана: новые инструменты и рост интереса инвесторов',
       category: 'Рынки',
       date: '14 июля 2025',
-      image: '/media/new-1.png',
+      image: '/media/1.jpg',
       slug: 'uzbekistan-capital-market-conference'
     },
     {
       title: 'Сотрудники PFG прошли обучение по корпоративному управлению',
       category: 'Новости',
       date: '14 июля 2025',
-      image: '/media/new-2.png',
+      image: '/media/2.jpg',
       slug: 'pfg-corporate-governance-training'
     },
     {
       title: 'Сотрудник PFG принял участие в оценке корпоративного управления (совместно с АБР)',
       category: 'Новости',
       date: '12 июня 2025',
-      image: '/media/new-3.png',
+      image: '/media/3.jpg',
       slug: 'pfg-corporate-governance-assessment'
     }
   ],
@@ -269,28 +269,28 @@ export const newsData = {
       title: 'В Узбекистане зарегистрировано свыше 16,6 тыс. предприятий с китайским капиталом',
       category: 'Рынки',
       date: '15 июля 2025',
-      image: '/media/new-4.png',
+      image: '/media/4.jpg',
       slug: 'uzbekistan-chinese-enterprises'
     },
     {
       title: 'Рынок капитала Узбекистана: новые инструменты и рост интереса инвесторов',
       category: 'Рынки',
       date: '14 июля 2025',
-      image: '/media/new-1.png',
+      image: '/media/1.jpg',
       slug: 'uzbekistan-capital-market-conference'
     },
     {
       title: 'Сотрудники PFG прошли обучение по корпоративному управлению',
       category: 'Новости',
       date: '14 июля 2025',
-      image: '/media/new-2.png',
+      image: '/media/2.jpg',
       slug: 'pfg-corporate-governance-training'
     },
     {
       title: 'Сотрудник PFG принял участие в оценке корпоративного управления (совместно с АБР)',
       category: 'Новости',
       date: '12 июня 2025',
-      image: '/media/new-3.png',
+      image: '/media/3.jpg',
       slug: 'pfg-corporate-governance-assessment'
     }
   ],
