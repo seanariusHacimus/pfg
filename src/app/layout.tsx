@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   description: "Your partner in the world of investments and finance",
   keywords: ["investment", "finance", "brokerage", "securities", "financial services", "PFG"],
   authors: [{ name: "PFG - Premium Finance Group" }],
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "PFG — Premium Finance Group",
     description: "Your partner in the world of investments and finance",
