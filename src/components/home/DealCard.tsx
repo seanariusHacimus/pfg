@@ -8,6 +8,7 @@ interface DealCardProps {
   dealAmount: string;
   width?: number;
   fullWidth?: boolean;
+  noBorderOnMobile?: boolean;
 }
 
 export default function DealCard({ 

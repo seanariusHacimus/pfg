@@ -1,17 +1,35 @@
 "use client"
 
-import HeaderWhite from '../../components/layout/HeaderWhite';
-import Footer from '../../components/layout/Footer';
-import DealCard from '../../components/home/DealCard';
-import DealSlider from '../../components/home/DealSlider';
-import { dealsData } from '../../components/data';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import HeaderWhite from '@/components/layout/HeaderWhite';
+import Footer from '@/components/layout/Footer';
+import DealSlider from '@/components/home/DealSlider';
+import DealSliderSkeleton from '@/components/home/DealSliderSkeleton';
+import DealCard from '@/components/home/DealCard';
+import DealCardSkeleton from '@/components/home/DealCardSkeleton';
+import { dealsData } from '@/components/data';
 
 export default function DealsPage() {
   const [visibleDeals, setVisibleDeals] = useState(10); // Show 10 deals initially (5x2 grid)
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  
+  useEffect(() => {
+    // Simulate initial loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+    
+    return () => clearTimeout(timer);
+  }, []);
   
   const loadMoreDeals = () => {
-    setVisibleDeals(prev => prev + 10); // Load 10 more deals
+    setIsLoadingMore(true);
+    // Simulate loading more deals
+    setTimeout(() => {
+      setVisibleDeals(prev => prev + 10); // Load 10 more deals
+      setIsLoadingMore(false);
+    }, 800);
   };
 
   return (
@@ -32,28 +50,56 @@ export default function DealsPage() {
         {/* Mobile-only Deals Slider */}
         <section className="bg-white text-black px-0 block md:hidden">
           <div className="container max-w-[1340px] m-auto pt-0 pb-[40px]">
-            <DealSlider dealsData={dealsData} />
+            {isLoading ? (
+              <DealSliderSkeleton />
+            ) : (
+              <DealSlider dealsData={dealsData} />
+            )}
           </div>
         </section>
 
         {/* Deals Grid Section */}
         <section className="bg-white text-black px-5">
           <div className="container max-w-[1340px] m-auto pt-0 md:pt-[50px] pb-[58px] md:pb-[58px]">
-            {/* Responsive Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-[10px]">
-              {dealsData.slice(0, visibleDeals).map((deal, index) => (
-                <DealCard 
-                  key={index}
-                  companyName={deal.companyName}
-                  date={deal.date}
-                  shareCount={deal.shareCount}
-                  shareDescription={deal.shareDescription}
-                  percentage={deal.percentage}
-                  percentageDescription={deal.percentageDescription}
-                  dealAmount={deal.dealAmount}
-                  fullWidth={true}
-                />
-              ))}
+            {/* Deals Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-[10px]">
+              {isLoading ? (
+                // Show skeleton loading cards
+                Array.from({ length: 10 }).map((_, index) => (
+                  <DealCardSkeleton 
+                    key={`skeleton-${index}`}
+                    fullWidth={true}
+                    noBorderOnMobile={true}
+                  />
+                ))
+              ) : (
+                // Show actual deal cards
+                dealsData.slice(0, visibleDeals).map((deal, index) => (
+                  <DealCard 
+                    key={index}
+                    companyName={deal.companyName}
+                    date={deal.date}
+                    shareCount={deal.shareCount}
+                    shareDescription={deal.shareDescription}
+                    percentage={deal.percentage}
+                    percentageDescription={deal.percentageDescription}
+                    dealAmount={deal.dealAmount}
+                    fullWidth={true}
+                    noBorderOnMobile={true}
+                  />
+                ))
+              )}
+              
+              {/* Show additional skeleton cards when loading more */}
+              {isLoadingMore && (
+                Array.from({ length: 10 }).map((_, index) => (
+                  <DealCardSkeleton 
+                    key={`loading-more-${index}`}
+                    fullWidth={true}
+                    noBorderOnMobile={true}
+                  />
+                ))
+              )}
             </div>
 
             {/* Load More Button */}
