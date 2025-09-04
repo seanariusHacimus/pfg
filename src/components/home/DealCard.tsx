@@ -6,6 +6,8 @@ interface DealCardProps {
   percentage: string;
   percentageDescription: string;
   dealAmount: string;
+  width?: number;
+  fullWidth?: boolean;
 }
 
 export default function DealCard({ 
@@ -15,10 +17,15 @@ export default function DealCard({
   shareDescription, 
   percentage, 
   percentageDescription, 
-  dealAmount 
+  dealAmount,
+  width = 240,
+  fullWidth = false
 }: DealCardProps) {
   return (
-    <div className="w-[250px] relative flex flex-col bg-white border border-[#E8E8E8] box-border min-h-[260px]">
+    <div 
+      className={`relative flex flex-col bg-white border border-[#E8E8E8] box-border min-h-[260px] ${fullWidth ? 'w-full' : ''}`} 
+      style={!fullWidth && width ? { width: `${width}px` } : {}}
+    >
       {/* Company Name */}
       <h4 className="text-[16px] leading-[100%] font-medium text-[#2450C4] px-5 pt-[16px]">
         {companyName}

@@ -24,6 +24,39 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [cardWidth, setCardWidth] = useState(240);
+
+  const getVisibleCardsCount = () => {
+    const width = window.innerWidth;
+    if (width < 640) return 1; // Mobile: 1 card
+    if (width < 768) return 2; // Small tablet: 2 cards
+    if (width < 1024) return 3; // Tablet: 3 cards
+    if (width < 1280) return 4; // Small desktop: 4 cards
+    return 5; // Large desktop: 5 cards
+  };
+
+  const calculateCardWidth = () => {
+    if (sliderRef.current) {
+      const width = window.innerWidth;
+      
+      // Fixed width for mobile
+      if (width < 640) {
+        setCardWidth(260);
+        return 260;
+      }
+      
+      // Dynamic width for larger screens
+      const containerWidth = sliderRef.current.clientWidth;
+      const gap = 10; // 10px gap between items
+      const visibleCards = getVisibleCardsCount();
+      const totalGaps = (visibleCards - 1) * gap;
+      const availableWidth = containerWidth - totalGaps;
+      const newCardWidth = Math.floor(availableWidth / visibleCards);
+      setCardWidth(newCardWidth);
+      return newCardWidth;
+    }
+    return 240;
+  };
 
   const checkScrollButtons = () => {
     if (sliderRef.current) {
@@ -34,6 +67,7 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
   };
 
   useEffect(() => {
+    calculateCardWidth();
     checkScrollButtons();
     const slider = sliderRef.current;
     if (slider) {
@@ -44,6 +78,7 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
 
   useEffect(() => {
     const handleResize = () => {
+      calculateCardWidth();
       checkScrollButtons();
     };
 
@@ -52,15 +87,8 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
   }, []);
 
   const calculateItemWidth = () => {
-    if (sliderRef.current) {
-      const firstItem = sliderRef.current.querySelector('.deal-item');
-      if (firstItem) {
-        const itemWidth = firstItem.getBoundingClientRect().width;
-        const gap = 10; // 10px gap between items
-        return itemWidth + gap;
-      }
-    }
-    return 310; // Fallback value (300px width + 10px gap)
+    const gap = 10; // 10px gap between items
+    return cardWidth + gap;
   };
 
   const scrollToDirection = (direction: 'left' | 'right') => {
@@ -68,7 +96,7 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
       // Small delay to ensure DOM is fully rendered
       setTimeout(() => {
         const itemWidth = calculateItemWidth();
-        const itemsToScroll = window.innerWidth < 768 ? 1 : 5; // 1 item on mobile, 5 on desktop
+        const itemsToScroll = 1; // Always scroll 1 item at a time
         const scrollAmount = itemWidth * itemsToScroll;
         
         const newScrollLeft = direction === 'left' 
@@ -168,7 +196,7 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
       >
         <div className="flex gap-[10px] w-max pl-5 pr-5 md:pr-0 md:pl-0">
           {dealsData.map((deal, index) => (
-            <div key={index} className="flex-shrink-0 deal-item">
+            <div key={index} className="flex-shrink-0 deal-item" style={{ width: `${cardWidth}px` }}>
               <DealCard 
                 companyName={deal.companyName}
                 date={deal.date}
@@ -177,6 +205,7 @@ export default function DealSlider({ dealsData }: DealSliderProps) {
                 percentage={deal.percentage}
                 percentageDescription={deal.percentageDescription}
                 dealAmount={deal.dealAmount}
+                width={cardWidth}
               />
             </div>
           ))}

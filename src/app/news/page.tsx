@@ -21,7 +21,7 @@ export default function NewsPage() {
 
         {/* Featured News Section */}
         <section className="bg-white text-black px-5">
-          <div className="container max-w-[1340px] m-auto pt-0 md:pt-[50px] pb-[28px] md:pb-[28px]">
+          <div className="container max-w-[1340px] m-auto pt-0 md:pt-[50px] pb-[58px] md:pb-[58px]">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-[45px] md:gap-x-[56px] md:gap-y-[45px]">
               {newsData.featuredNewsGrid.map((news, index) => (
                 <FeaturedNewsItem 
