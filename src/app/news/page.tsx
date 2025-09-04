@@ -1,9 +1,40 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import HeaderWhite from '../../components/layout/HeaderWhite';
 import Footer from '../../components/layout/Footer';
 import FeaturedNewsItem from '../../components/home/FeaturedNewsItem';
+import NewsPageSkeleton from '../../components/skeletons/NewsPageSkeleton';
+import MobileNewsPageSkeleton from '../../components/skeletons/MobileNewsPageSkeleton';
 import { newsData } from '../../components/data';
 
 export default function NewsPage() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time for demonstration
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <HeaderWhite />
+        <div className="block md:hidden">
+          <MobileNewsPageSkeleton />
+        </div>
+        <div className="hidden md:block">
+          <NewsPageSkeleton />
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <HeaderWhite />
