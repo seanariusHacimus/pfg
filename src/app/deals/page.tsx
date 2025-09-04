@@ -61,7 +61,7 @@ export default function DealsPage() {
               <div className="flex justify-center mt-[40px] md:mt-[60px]">
                 <button 
                   onClick={loadMoreDeals}
-                  className="bg-[#2450C4] text-white px-[32px] py-[12px] text-[14px] font-medium hover:bg-[#1a3a9a] transition-colors duration-300"
+                  className="inline-flex items-center justify-center px-[25px] py-[19px] w-[250px] h-[45px] md:max-w-[240px] md:h-[58px] md:px-[26px] md:py-[18px] bg-[#F3F7FA] border border-[#0046FF] text-black text-[14px] leading-[17px] md:text-[18px] md:leading-[22px] tracking-[0.01em] font-sans font-light text-center hover:bg-[#E8F2F5] transition-colors duration-200"
                 >
                   Загрузить еще
                 </button>
